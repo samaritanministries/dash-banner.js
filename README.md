@@ -30,10 +30,6 @@ Steps to release a new version:
 Run ```testem```
 
 # Usage
-For more documentation, visit our [documentation site](http://developers.samaritanministries.org/developers/dash-banner.js/)
-
-## Stylesheets
-
 
 ## Success Example
 
@@ -44,7 +40,7 @@ DashBanner.View.flashSuccess("Some Success Message")
 ## Error Example
 
 ```coffee
-DashBanner.View.flashError("Some Error Message #{event.timeStamp}")
+DashBanner.View.flashError("Some Error Message")
 ```
 
 # Running the sample
