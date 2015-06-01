@@ -1,4 +1,3 @@
 $ ->
-  foo = new DashBanner.Foo()
-  foo.render()
-  $("[data-id=foo-container]").html(foo.el)
+  new SampleApp.ShowBannerView
+    el: $("[data-id=show-banner]")
