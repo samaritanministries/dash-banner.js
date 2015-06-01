@@ -38,15 +38,7 @@ module.exports = function (grunt) {
       namespace: {
         src: 'scripts/namespace.js',
         dest: '.tmp/scripts/namespace.js'
-      },
-      // css: {
-      //   src: '.tmp/styles/dash_banner.css',
-      //   dest: 'dist/dash_banner.css'
-      // },
-      // scss: {
-      //   src: 'styles/dash_banner.scss',
-      //   dest: 'dist/dash_banner.scss'
-      // }
+      }
     },
 
     jst: {
@@ -59,14 +51,6 @@ module.exports = function (grunt) {
         }
       }
     },
-
-    // sass: {
-    //   dist: {
-    //     files: {
-    //       ".tmp/styles/dash_banner.css": "styles/dash_banner.scss"
-    //     }
-    //   }
-    // },
 
     uglify: {
       options: {
@@ -94,10 +78,7 @@ module.exports = function (grunt) {
                      'clean:dist',
                      'jst',
                      'coffee:src',
-                     // 'sass',
                      'copy:namespace',
-                     // 'copy:css',
-                     // 'copy:scss',
                      'uglify'
 
   ]);
@@ -106,7 +87,6 @@ module.exports = function (grunt) {
                      'clean:tmp',
                      'jst',
                      'coffee:src',
-                     // 'sass',
                      'coffee:spec'
   ]);
 
