@@ -1,8 +1,15 @@
 # Dash Banner
 
-BUILD ICON
+[![Build Status](https://travis-ci.org/samaritanministries/dash-banner.js.svg?branch=master)](https://travis-ci.org/samaritanministries/dash-banner.js)
 
 ####This is the alert banner for the Dash platform.
+
+
+## Dependencies
+
+ * [Samaritan CSS](https://github.com/samaritanministries/samaritan-css)
+     * `flash`
+     * `icons`
 
 # Releasing a New Version
 
@@ -23,13 +30,22 @@ Steps to release a new version:
 Run ```testem```
 
 # Usage
-For more documentation, visit our [documentation site](http://developers.samaritanministries.org/developers/dash-modal.js/)
+For more documentation, visit our [documentation site](http://developers.samaritanministries.org/developers/dash-banner.js/)
+
+## Stylesheets
+
 
 ## Success Example
 
+```coffee
+DashBanner.View.flashSuccess("Some Success Message")
+```
+
 ## Error Example
 
-## Custom Example
+```coffee
+DashBanner.View.flashError("Some Error Message #{event.timeStamp}")
+```
 
 # Running the sample
 
