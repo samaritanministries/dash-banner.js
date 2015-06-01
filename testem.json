@@ -8,8 +8,8 @@
     "scripts/bower_components/backbone/backbone.js",
     "scripts/bower_components/jasmine-jquery/lib/jasmine-jquery.js",
     "scripts/namespace.js",
-    ".tmp/scripts/dash-banner/templates.js",
-    ".tmp/scripts/dash-banner/view.js",
+    ".tmp/scripts/dash_banner/templates.js",
+    ".tmp/scripts/dash_banner/view.js",
     ".tmp/spec/**/*.js"
   ]
 }

@@ -40,12 +40,12 @@ module.exports = function (grunt) {
         dest: '.tmp/scripts/namespace.js'
       },
       // css: {
-      //   src: '.tmp/styles/dash-banner.css',
-      //   dest: 'dist/dash-banner.css'
+      //   src: '.tmp/styles/dash_banner.css',
+      //   dest: 'dist/dash_banner.css'
       // },
       // scss: {
-      //   src: 'styles/dash-banner.scss',
-      //   dest: 'dist/dash-banner.scss'
+      //   src: 'styles/dash_banner.scss',
+      //   dest: 'dist/dash_banner.scss'
       // }
     },
 
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
           namespace: 'DashBannerJST'
         },
         files: {
-          ".tmp/scripts/dash-banner/templates.js": ["scripts/dash-banner/**/*.ejs"]
+          ".tmp/scripts/dash_banner/templates.js": ["scripts/dash_banner/**/*.ejs"]
         }
       }
     },
@@ -63,7 +63,7 @@ module.exports = function (grunt) {
     // sass: {
     //   dist: {
     //     files: {
-    //       ".tmp/styles/dash-banner.css": "styles/dash-banner.scss"
+    //       ".tmp/styles/dash_banner.css": "styles/dash_banner.scss"
     //     }
     //   }
     // },
@@ -77,8 +77,8 @@ module.exports = function (grunt) {
         files: {
           'dist/dash-banner.min.js': [
             '.tmp/scripts/namespace.js',
-            '.tmp/scripts/dash-banner/templates.js',
-            '.tmp/scripts/dash-banner/foo.js',
+            '.tmp/scripts/dash_banner/templates.js',
+            '.tmp/scripts/dash_banner/foo.js',
           ]
         }
       }

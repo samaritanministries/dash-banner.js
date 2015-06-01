@@ -4,7 +4,7 @@ class DashBanner.View extends Backbone.View
 
   @TIME_VISIBLE_IN_MILLISECONDS: 3000
 
-  template: DashBannerJST["scripts/dash-banner/view_template.ejs"]
+  template: DashBannerJST["scripts/dash_banner/view_template.ejs"]
 
   @flashSuccess: (message) ->
     view = new DashBanner.View
