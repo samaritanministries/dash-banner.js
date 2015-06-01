@@ -62,7 +62,7 @@ module.exports = function (grunt) {
           'dist/dash-banner.min.js': [
             '.tmp/scripts/namespace.js',
             '.tmp/scripts/dash_banner/templates.js',
-            '.tmp/scripts/dash_banner/foo.js',
+            '.tmp/scripts/dash_banner/view.js',
           ]
         }
       }
