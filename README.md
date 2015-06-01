@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/samaritanministries/dash-banner.js.svg?branch=master)](https://travis-ci.org/samaritanministries/dash-banner.js)
 
-####This is the alert banner for the Dash platform.
+#### This is the alert banner for the Dash platform.
 
 
 ## Dependencies
@@ -10,6 +10,7 @@
  * [Samaritan CSS](https://github.com/samaritanministries/samaritan-css)
      * `flash`
      * `icons`
+ * An element with `data-id=dash-banner-container`
 
 # Releasing a New Version
 
@@ -30,6 +31,8 @@ Steps to release a new version:
 Run ```testem```
 
 # Usage
+
+Dash Banner requires an element with `data-id=dash-banner-container` on the page.
 
 ## Success Example
 
