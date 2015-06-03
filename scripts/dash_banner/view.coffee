@@ -3,6 +3,7 @@ namespace('DashBanner')
 class DashBanner.View extends Backbone.View
 
   @TIME_VISIBLE_IN_MILLISECONDS: 3000
+  @ACTIVE_TIMER_ID = null
 
   template: DashBannerJST["scripts/dash_banner/view_template.ejs"]
 
@@ -34,10 +35,17 @@ class DashBanner.View extends Backbone.View
 
   flash: ->
     @render()
-    setTimeout(@_hideBanner, DashBanner.View.TIME_VISIBLE_IN_MILLISECONDS)
+    if DashBanner.View.ACTIVE_TIMER_ID
+      clearTimeout(DashBanner.View.ACTIVE_TIMER_ID)
+    timerId = setTimeout(@_hideBanner, DashBanner.View.TIME_VISIBLE_IN_MILLISECONDS)
+    DashBanner.View.ACTIVE_TIMER_ID = timerId
     @
 
+  activeTimerID: ->
+    DashBanner.View.ACTIVE_TIMER_ID
+
   _hideBanner: =>
+    DashBanner.View.ACTIVE_TIMER_ID = null
     @_bannerEl().slideUp(150, =>
       @bannerContainer.empty())
 

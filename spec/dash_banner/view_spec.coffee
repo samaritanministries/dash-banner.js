@@ -33,6 +33,24 @@ describe "DashBanner.View", ->
 
     jasmine.clock().tick(1)
     expect($("[data-id=dash-banner-container] [data-id=dash-banner]")).not.toExist()
+    expect(new DashBanner.View({}).activeTimerID()).toBeNull()
+
+  it "resets the banner countdown", ->
+    view = showBanner("Hello")
+    jasmine.clock().tick(DashBanner.View.TIME_VISIBLE_IN_MILLISECONDS - 1)
+
+    view = showBanner("Hello Again")
+    jasmine.clock().tick(1)
+    expect($("[data-id=dash-banner-container] [data-id=dash-banner]")).toExist()
+
+  it "shows and hides a second banner", ->
+    view = showBanner("Hello")
+    jasmine.clock().tick(DashBanner.View.TIME_VISIBLE_IN_MILLISECONDS + 1)
+
+    view = showBanner("Hello Again")
+
+    jasmine.clock().tick(DashBanner.View.TIME_VISIBLE_IN_MILLISECONDS)
+    expect($("[data-id=dash-banner-container] [data-id=dash-banner]")).not.toExist()
 
   describe "Custom banners", ->
 
