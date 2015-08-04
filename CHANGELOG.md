@@ -2,7 +2,7 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
-## [0.1.3] - 2015-08-03
+## [0.1.4] - 2015-08-04
 
  * Added action banner.
 
