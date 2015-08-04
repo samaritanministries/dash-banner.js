@@ -46,6 +46,12 @@ DashBanner.View.flashSuccess("Some Success Message")
 DashBanner.View.flashError("Some Error Message")
 ```
 
+## Action Example
+
+```coffee
+DashBanner.View.showAction("Some Action Message")
+```
+
 # Running the sample
 
 1. run `testem`

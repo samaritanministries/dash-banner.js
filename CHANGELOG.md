@@ -2,6 +2,10 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [0.1.3] - 2015-08-03
+
+ * Added action banner.
+
 ## [0.1.2] - 2015-07-06
 
  * Added ability for persistence in flash banner with show methods.

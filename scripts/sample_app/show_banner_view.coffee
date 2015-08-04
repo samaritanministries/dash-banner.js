@@ -3,11 +3,27 @@ namespace("SampleApp")
 class SampleApp.ShowBannerView extends Backbone.View
 
   events:
+    "click [data-id=flash-success-banner]": "flashSuccessBanner"
+    "click [data-id=flash-error-banner]": "flashErrorBanner"
     "click [data-id=show-success-banner]": "showSuccessBanner"
     "click [data-id=show-error-banner]": "showErrorBanner"
+    "click [data-id=show-action-banner]": "showActionBanner"
+    "click [data-id=close-banner]": "closeBanner"
 
-  showSuccessBanner: (event) ->
+  flashSuccessBanner: (event) ->
     DashBanner.View.flashSuccess("Some Success Message #{event.timeStamp}")
 
-  showErrorBanner: (event) ->
+  flashErrorBanner: (event) ->
     DashBanner.View.flashError("Some Error Message #{event.timeStamp}")
+
+  showSuccessBanner: (event) ->
+    DashBanner.View.showSuccess("Some Success Message #{event.timeStamp}")
+
+  showErrorBanner: (event) ->
+    DashBanner.View.showError("Some Error Message #{event.timeStamp}")
+
+  showActionBanner: (event) ->
+    DashBanner.View.showAction("Some Action Message #{event.timeStamp}")
+
+  closeBanner: ->
+    DashBanner.View.closeBanner()
