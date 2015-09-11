@@ -37,19 +37,51 @@ Dash Banner requires an element with `data-id=dash-banner-container` on the page
 ## Success Example
 
 ```coffee
+DashBanner.View.showSuccess("Some Success Message")
 DashBanner.View.flashSuccess("Some Success Message")
 ```
+`flashSuccess` automatically closes the Banner after 3 sec
 
 ## Error Example
 
 ```coffee
+DashBanner.View.showError("Some Error Message")
 DashBanner.View.flashError("Some Error Message")
 ```
+`flashError` automatically closes the Banner after 3 sec
+
 
 ## Action Example
 
 ```coffee
-DashBanner.View.showAction("Some Action Message")
+DashBanner.View.showAction("Some Action Message", "custom-status")
+```
+
+'showAction' can also be used to attach the Banner to a custom container.
+
+```coffee
+DashBanner.View.showAction("Some Action Message", "custom-status", $('.custom-container'))
+```
+When used in this way the custom container must also be passed to `closeBanner`
+
+```coffee
+DashBanner.View.closeBanner($('.custom-container'))
+```
+
+
+## Closing the Banner
+
+When using `showSuccess`, `showError`, or `showAction` the Banner must be manually closed
+
+```coffee
+DashBanner.View.closeBanner()
+```
+
+When `showAction` is given a custom container, the custom container must also be passed to `closeBanner`
+
+```coffee
+DashBanner.View.showAction("Some Action Message", "custom-status", $('.custom-container'))
+DashBanner.View.closeBanner($('.custom-container'))
 ```
 
 # Running the sample

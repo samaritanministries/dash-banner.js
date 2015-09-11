@@ -39,16 +39,16 @@ class DashBanner.View extends Backbone.View
       target: $("[data-id=dash-banner-container]")
     view.show(DashBanner.View.SHOW_TEMPLATE)
 
-  @showAction: (message, status) ->
+  @showAction: (message, status, target) ->
     view = new DashBanner.View
       message: message
       status: status
-      target: $("[data-id=dash-banner-container]")
+      target: target || $("[data-id=dash-banner-container]")
     view.show(DashBanner.View.ACTION_TEMPLATE)
 
-  @closeBanner: ->
+  @closeBanner: (target) ->
     view = new DashBanner.View
-      target: $("[data-id=dash-banner-container]")
+      target: target || $("[data-id=dash-banner-container]")
     view.bannerContainer.html('')
 
   initialize: (options) ->
@@ -90,4 +90,3 @@ class DashBanner.View extends Backbone.View
 
   _iconEl: ->
     @$("[data-id=banner-icon]")
-  
