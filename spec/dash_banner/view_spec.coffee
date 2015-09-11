@@ -1,7 +1,7 @@
 describe "DashBanner.View", ->
 
   beforeEach ->
-    setFixtures('<div data-id="dash-banner-container"></div>')
+    @fixture = setFixtures('<div data-id="dash-banner-container"></div>')
     jQuery.fx.off = true
     jasmine.clock().install()
 
@@ -20,10 +20,11 @@ describe "DashBanner.View", ->
       target: $("[data-id=dash-banner-container]")
     view.show(DashBanner.View.SHOW_TEMPLATE)
 
-  showAction = (message) ->
+  showAction = (message, status, target) ->
     view = new DashBanner.View
       message: message
-      target: $("[data-id=dash-banner-container]")
+      status: status
+      target: target || $("[data-id=dash-banner-container]")
     view.show(DashBanner.View.ACTION_TEMPLATE)
 
   describe " - flash banner", ->
@@ -103,10 +104,22 @@ describe "DashBanner.View", ->
 
       expect(view.$("[data-id=dash-banner]")).toHaveText("Hello")
 
+    it "uses the custom status", ->
+      view = showAction("Hello", "custom-status")
+
+      expect(view.$("[data-id=dash-banner]")).toHaveClass("banner-custom-status")
+      expect(view.$("[data-id=banner-icon]")).toHaveClass("custom-status-icon")
+
     it "appends the banner to the page", ->
       view = showAction("Hello")
 
       expect($("[data-id=dash-banner-container] [data-id=dash-banner]")).toExist()
+
+    it "can attach to a custom target", ->
+      $customTarget = $('<div data-id="custom-container"></div>')
+      view = showAction("Hello", "custom-status", $customTarget)
+      expect($customTarget).toContainElement("[data-id=dash-banner]")
+      expect($("[data-id=dash-banner-container]")).not.toContainElement("[data-id=dash-banner]")
 
 
   describe "Custom banners", ->
