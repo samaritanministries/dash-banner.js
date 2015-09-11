@@ -2,6 +2,10 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [0.1.5] - 2015-08-04
+
+ * Allow action banner to have custom target container.
+
 ## [0.1.4] - 2015-08-04
 
  * Added action banner.
