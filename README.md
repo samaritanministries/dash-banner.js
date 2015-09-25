@@ -55,14 +55,16 @@ DashBanner.View.flashError("Some Error Message")
 
 ```coffee
 DashBanner.View.showAction("Some Action Message", "custom-status")
+DashBanner.View.flashAction("Some Action Message", "custom-status")
 ```
 
-'showAction' can also be used to attach the Banner to a custom container.
+`flashaction` automatically closes the Banner after 3 sec
+`showAction` can also be used to attach the Banner to a custom container:
 
 ```coffee
 DashBanner.View.showAction("Some Action Message", "custom-status", $('.custom-container'))
 ```
-When used in this way the custom container must also be passed to `closeBanner`
+When used in this way the custom container must also be passed to `closeBanner`:
 
 ```coffee
 DashBanner.View.closeBanner($('.custom-container'))

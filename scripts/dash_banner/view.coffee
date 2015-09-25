@@ -25,6 +25,13 @@ class DashBanner.View extends Backbone.View
       target: $("[data-id=dash-banner-container]")
     view.flash(DashBanner.View.FLASH_TEMPLATE)
 
+  @flashAction: (message, status, target) ->
+    view = new DashBanner.View
+      message: message
+      status: status
+      target: target || $("[data-id=dash-banner-container]")
+    view.flash(DashBanner.View.ACTION_TEMPLATE)
+
   @showSuccess: (message) ->
     view = new DashBanner.View
       message: message
