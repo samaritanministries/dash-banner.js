@@ -2,6 +2,10 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [0.1.6] - 2015-08-25
+
+ * Add flashAction so that each banner type (Success, Error, Action) has both a show and a flash
+
 ## [0.1.5] - 2015-08-04
 
  * Allow action banner to have custom target container.
