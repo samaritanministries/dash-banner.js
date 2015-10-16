@@ -40,12 +40,12 @@ module.exports = function (grunt) {
         dest: '.tmp/scripts/namespace.js'
       },
       css: {
-        src: '.tmp/styles/dash-modal.css',
-        dest: 'dist/dash-modal.css'
+        src: '.tmp/styles/dash-banner.css',
+        dest: 'dist/dash-banner.css'
       },
       scss: {
-        src: 'styles/dash-modal.scss',
-        dest: 'dist/dash-modal.scss'
+        src: 'styles/dash-banner.scss',
+        dest: 'dist/dash-banner.scss'
       }
     },
 
@@ -63,7 +63,7 @@ module.exports = function (grunt) {
     sass: {
       dist: {
         files: {
-          ".tmp/styles/dash-modal.css": "styles/dash-modal.scss"
+          ".tmp/styles/dash-banner.css": "styles/dash-banner.scss"
         }
       }
     },
