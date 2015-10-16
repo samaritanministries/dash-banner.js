@@ -38,6 +38,14 @@ module.exports = function (grunt) {
       namespace: {
         src: 'scripts/namespace.js',
         dest: '.tmp/scripts/namespace.js'
+      },
+      css: {
+        src: '.tmp/styles/dash-modal.css',
+        dest: 'dist/dash-modal.css'
+      },
+      scss: {
+        src: 'styles/dash-modal.scss',
+        dest: 'dist/dash-modal.scss'
       }
     },
 
@@ -48,6 +56,14 @@ module.exports = function (grunt) {
         },
         files: {
           ".tmp/scripts/dash_banner/templates.js": ["scripts/dash_banner/**/*.ejs"]
+        }
+      }
+    },
+
+    sass: {
+      dist: {
+        files: {
+          ".tmp/styles/dash-modal.css": "styles/dash-modal.scss"
         }
       }
     },
@@ -78,7 +94,10 @@ module.exports = function (grunt) {
                      'clean:dist',
                      'jst',
                      'coffee:src',
+                     'sass',
                      'copy:namespace',
+                     'copy:css',
+                     'copy:scss',
                      'uglify'
 
   ]);
@@ -87,6 +106,7 @@ module.exports = function (grunt) {
                      'clean:tmp',
                      'jst',
                      'coffee:src',
+                     'sass',
                      'coffee:spec'
   ]);
 
