@@ -2,6 +2,11 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [0.3.0] - 2015-11-25
+
+ * Fix issue with needing to comment out dashing-core
+     * Extract dash-modal specific styles to their own style sheet
+
 ## [0.1.6] - 2015-08-25
 
  * Add flashAction so that each banner type (Success, Error, Action) has both a show and a flash
