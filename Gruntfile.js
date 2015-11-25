@@ -63,7 +63,7 @@ module.exports = function (grunt) {
     sass: {
       dist: {
         files: {
-          ".tmp/styles/dash-banner.css": "styles/dash-banner.scss"
+          ".tmp/styles/dash-banner-with-dashing-core.css": "styles/dash-banner-with-dashing-core.scss"
         }
       }
     },
@@ -94,9 +94,8 @@ module.exports = function (grunt) {
                      'clean:dist',
                      'jst',
                      'coffee:src',
-                     'sass',
+                     'sass', // Compiles sass for sample app
                      'copy:namespace',
-                     'copy:css',
                      'copy:scss',
                      'uglify'
 
