@@ -1,6 +1,6 @@
 {
   "name": "dash-banner.js",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "dist/dash-banner.min.js",
 
   "homepage": "http://developers.samaritanministries.org/",

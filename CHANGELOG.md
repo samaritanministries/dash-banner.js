@@ -2,6 +2,10 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [0.3.1] - 2016-06-22
+
+ * Fix Icon (SVG) display for Firefox
+
 ## [0.3.0] - 2015-11-25
 
  * Fix issue with needing to comment out dashing-core
