@@ -1,2 +1,10 @@
-@import '../scripts/bower_components/dashing-core/sass/dashing-core';
+@font-face {
+  font-family: 'dashing-icons';
+  src:  url('../../scripts/bower_components/dashing/font/dashing-icons.woff') format('woff'),
+        url('../dashing/font/dashing-icons.woff') format('woff');
+}
+
+@import '../scripts/bower_components/dashing/dashing';
+@import '../scripts/bower_components/dashing/sass/base/base';
+@import '../scripts/bower_components/dashing/sass/modules/modules';
 @import 'dash-banner';
