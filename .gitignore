@@ -4,3 +4,4 @@ scripts/bower_components
 .gitattributes
 .tmp
 .idea
+.sass-cache
