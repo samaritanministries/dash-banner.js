@@ -13,7 +13,8 @@
   },
 
   "dependencies": {
-    "dashing-core": "~1.0.6"
+    "dashing-core": "~1.0.6",
+    "dashing": "~0.3.8-beta"
   },
 
   "devDependencies": {
