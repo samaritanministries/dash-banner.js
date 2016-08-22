@@ -2,6 +2,13 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [UNRELEASED]
+
+ * Refactor to dash framework (https://github.com/dashframework/dashing/)
+ * Inclide new font Icons
+ * Update the "action banner" to gray background
+ * Change class names to better reflect new name changes
+
 ## [0.3.1] - 2016-06-22
 
  * Fix Icon (SVG) display for Firefox
