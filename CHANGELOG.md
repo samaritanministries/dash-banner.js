@@ -2,6 +2,10 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [0.4.1] - 2016-08-22
+
+ * Build dist files
+
 ## [0.4.0] - 2016-08-22
 
  * Refactor to dash framework (https://github.com/dashframework/dashing/)
