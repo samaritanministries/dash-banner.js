@@ -2,6 +2,10 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [0.4.2] - 2016-08-22
+
+ * Pair log with version
+
 ## [0.4.1] - 2016-08-22
 
  * Build dist files
