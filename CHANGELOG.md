@@ -2,6 +2,10 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [0.4.4] - 2016-08-22
+
+ * Build dist
+
 ## [0.4.3] - 2016-08-22
 
  * Change "flash" to "dash-banner" in show_template.ejs
