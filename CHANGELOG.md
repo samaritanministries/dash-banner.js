@@ -2,7 +2,7 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
-## [UNRELEASED]
+## [0.4.0] - 2016-08-22
 
  * Refactor to dash framework (https://github.com/dashframework/dashing/)
  * Inclide new font Icons
