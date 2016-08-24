@@ -76,8 +76,15 @@ class DashBanner.View extends Backbone.View
     @$el.html(template())
     @bannerContainer.html(@el)
     @_messageEl().text(@message)
-    @_bannerEl().addClass('banner-'+@status)
-    @_iconEl().addClass(@status+'-icon')
+
+    @_bannerEl().addClass('dash-banner--'+@status)
+    if @status is 'error'
+      @_iconEl().addClass('dashing-icon--alert-filled')
+    else if @status is 'success'
+      @_iconEl().addClass('dashing-icon--checkmark')
+    else
+      @_iconEl().addClass('dashing-icon--' + @status)
+
     clearTimeout(DashBanner.View.ACTIVE_TIMER_ID) if DashBanner.View.ACTIVE_TIMER_ID
     @
 

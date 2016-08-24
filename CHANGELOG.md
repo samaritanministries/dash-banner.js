@@ -2,6 +2,16 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [0.5.0] - 2016-08-24
+
+ * update script to switch icons
+ * update class names
+ * build dist
+ * correct tests
+ * add fade to banner
+ * set default background to gray
+ * added background color classes (.dash-banner--COLOR)
+
 ## [0.4.4] - 2016-08-22
 
  * Build dist

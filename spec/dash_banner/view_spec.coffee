@@ -107,8 +107,8 @@ describe "DashBanner.View", ->
     it "uses the custom status", ->
       view = showAction("Hello", "custom-status")
 
-      expect(view.$("[data-id=dash-banner]")).toHaveClass("banner-custom-status")
-      expect(view.$("[data-id=banner-icon]")).toHaveClass("custom-status-icon")
+      expect(view.$("[data-id=dash-banner]")).toHaveClass("dash-banner--custom-status")
+      expect(view.$("[data-id=banner-icon]")).toHaveClass("dashing-icon--custom-status")
 
     it "appends the banner to the page", ->
       view = showAction("Hello")
@@ -126,17 +126,18 @@ describe "DashBanner.View", ->
 
     it "shows a success message", ->
       view = DashBanner.View.flashSuccess("Great Success!")
-      expect(view.$("[data-id=dash-banner]")).toHaveClass("banner-success")
+      expect(view.$("[data-id=dash-banner]")).toHaveClass("dash-banner--success")
       expect(view.$("[data-id=banner-message]")).toHaveText("Great Success!")
 
     it "shows an error message", ->
       view = DashBanner.View.flashError("Something Bad Happened!")
 
-      expect(view.$("[data-id=dash-banner]")).toHaveClass("banner-error")
+      expect(view.$("[data-id=dash-banner]")).toHaveClass("dash-banner--error")
       expect(view.$("[data-id=banner-message]").text()).toContain("Something Bad Happened!")
 
     it "shows an action message", ->
       view = DashBanner.View.showAction("Something Bad Happened!")
 
-      expect(view.$("[data-id=dash-banner]")).toHaveClass("action-banner")
+      expect(view.$("[data-id=dash-banner]")).toHaveClass("dash-banner--undefined")
       expect(view.$("[data-id=banner-message]").text()).toContain("Something Bad Happened!")
+

@@ -1,4 +1,13 @@
-.banner, .dash-banner {
+//keyframe animation for banner fade-in
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+$dash-banner--icon-size: 1.5rem !default;
+$dash-banner--text-color: $white !default;
+
+.dash-banner { //placement
   padding: 1.5rem;
   pointer-events: none;
   position: fixed;
@@ -7,31 +16,53 @@
   text-align: center;
   width: 100%;
   z-index: 9999;
+  background: $gray-500;
+  animation: fadein 0.5s;
 
-  .banner-icon, &.dash-banner--icon {
+  .dash-banner--icon { //alignment for icon
     display: inline-block;
     vertical-align: middle;
     margin-right: 0.5rem;
 
     &::before {
-      font-size: 1.5rem;
+      font-size: $dash-banner--icon-size;
     }
   }
-//flip these out in html to new ones
-  &.banner-error, &.dash-banner--error {
+
+  &.dash-banner--error, &.dash-banner--red {
     background: $red;
   }
 
-  &.banner-success, &.dash-banner--success {
+  &.dash-banner--success, &.dash-banner--green {
     background: $green;
   }
 
-  &.banner-undefined, &.dash-banner--custom {
-    background: $gray-500c;
+  &.dash-banner--undefined { //For custom banners
+    background: $gray-500;
   }
 
-  .banner-title, .dash-banner--title {
-    color: $white;
+  &.dash-banner--blue {
+    background: $blue;
+  }
+
+  &.dash-banner--gray, &.dash-banner--grey {
+    background: $gray;
+  }
+
+  &.dash-banner--orange {
+    background: $orange;
+  }
+
+  &.dash-banner--purple {
+    background: $purple;
+  }
+
+  &.dash-banner--red {
+    background: $red;
+  }
+
+  .dash-banner--title {
+    color: $dash-banner--text-color;
     display: inline-block;
     font-size: $font-size-medium;
     margin: 0;
@@ -39,5 +70,11 @@
   }
 }
 
-//This class is called a couple times but never had anything styled with it
-// .flash-close {}
+.dashing-icon--undefined {
+  @extend .dashing-icon--alert-filled;
+}
+
+/*
+  These classes are called a couple times but were not in the css
+ .flash-close {}
+*/
