@@ -2,6 +2,15 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [0.5.3] - 2016-09-01
+ * add class to prevent overflow on mobile
+
+## [0.5.2] - UNRELEASED
+ * no changes, push errors caused a skip in tag
+
+## [0.5.1] - 2016-08-24
+ * add support for a close icon banner (currently unuseable)
+
 ## [0.5.0] - 2016-08-24
 
  * update script to switch icons
