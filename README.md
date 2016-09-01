@@ -7,9 +7,8 @@
 
 ## Dependencies
 
- * [Samaritan CSS](https://github.com/samaritanministries/samaritan-css)
-     * `flash`
-     * `icons`
+ * [Dashing Framework](https://github.com/dashframework/dashing/)
+
  * An element with `data-id=dash-banner-container`
 
 # Releasing a New Version

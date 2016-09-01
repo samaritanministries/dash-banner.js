@@ -79,7 +79,6 @@ $dash-banner--text-color: $white !default;
   @extend .dashing-icon--alert-filled;
 }
 
-/*
-  These classes are called a couple times but were not in the css
- .flash-close {}
-*/
+.dash-banner--row {//prevent overflow bars
+  overflow: hidden;
+}
