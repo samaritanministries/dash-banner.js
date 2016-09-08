@@ -1,6 +1,9 @@
 # Change Log
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
+## [0.5.4] - 2016-09-07
+ * update README
+ * remove duplicate class
 
 ## [0.5.3] - 2016-09-01
  * add class to prevent overflow on mobile
