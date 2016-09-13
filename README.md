@@ -107,32 +107,45 @@ Multiple classes can be called by the CSS supplied within this component. They a
 
 ## Banner General
 
-`.dash-banner-container` 							: This class is required as the initial wrapper.
-`.dash-banner` 									: This activates the initial banner, alone it will provide a generic banner with a gray background.
-`.dash-banner--undefined` 						: A gray background by default, this class is meant to be overwritten to any color needed. apply this after .dash-banner has been applied
+<dl>
+ <dt>.dash-banner-container</dt>
+ <dd>This class is required as the initial wrapper.</dd>
+ <dt>.dash-banner</dt>
+ <dd>This activates the initial banner, alone it will provide a generic banner with a gray background.</dd>
+ <dt>.dash-banner--undefined</dt>
+ <dd>A gray background by default, this class is meant to be overwritten to any color needed. apply this after .dash-banner has been applied.</dd>
+</dl>
 
 ## Banner Colors
 
-`.dash-banner--error` || `.dash-banner--red`  		: The typical dash red as a banner background.
-`.dash-banner--success` || `.dash-banner--green`  	: The typical dash green as a banner background.
-`.dash-banner--blue`  							: The typical dash blue as a banner background.
-`.dash-banner--gray` || `.dash-banner--grey` 		: The typical dash gray/grey as a banner background.
-`.dash-banner--orange`							: The typical dash orange as a banner background.
-`.dash-banner--purple`							: The typical dash purple as a banner background.
+<dl>
+ <dt>.dash-banner--error,  .dash-banner--red</dt>
+ <dd>The typical dash red as a banner background.</dd>
+ <dt>.dash-banner--success,  .dash-banner--green</dt>  	
+ <dd>The typical dash green as a banner background.</dd>
+ <dt>.dash-banner--blue</dt>
+ <dd>The typical dash blue as a banner background.</dd>
+ <dt>.dash-banner--gray, .dash-banner--grey</dt>
+ <dd>The typical dash gray/grey as a banner background.</dd>
+ <dt>.dash-banner--orange</dt>
+ <dd>The typical dash orange as a banner background.</dd>
+ <dt>.dash-banner--purple</dt>
+ <dd>The typical dash purple as a banner background.</dd>
+</dl>
 
 ## Banner Other 
 
 <dl>
   <dt>.dash-banner--close</dt>
   <dd>This displays the close icon on a banner, currently this functionality is not enabled by any banner</dd>
-<dt>.dash-banner--icon</dt>
-<dd>The size, color, and alignment of the icons displayed by the banner</dd>
-<dt>.dash-banner--title</dt>
-<dd>The size, color, and alignment of the text displayed by the banner</dd>
-<dt>.dash-banner--row</dt>
-<dd>This class provides a simple fix to the normal dash "row" class to prevent overflow within banners. This class should only be added to the "row" containing element for the banner</dd>
-<dt>.dashing-icon--undefined</dt> 
-<dd>An icon to be overwritten, displays alert-filled by default</dd>
+  <dt>.dash-banner--icon</dt>
+  <dd>The size, color, and alignment of the icons displayed by the banner</dd>
+  <dt>.dash-banner--title</dt>
+  <dd>The size, color, and alignment of the text displayed by the banner</dd>
+  <dt>.dash-banner--row</dt>
+  <dd>This class provides a simple fix to the normal dash "row" class to prevent overflow within banners. This class should only be added to the "row" containing element for the banner</dd>
+  <dt>.dashing-icon--undefined</dt> 
+  <dd>An icon to be overwritten, displays alert-filled by default</dd>
 </dl>
 
 
