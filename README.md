@@ -96,8 +96,7 @@ DashBanner.View.closeBanner($('.custom-container'))
 
 Include component styles in your main application SASS file.
 
-```
-scss
+```scss
 @import "bower_components/dash-spinner.js/styles/dash-spinner";
 ```
 >Note: Depending on your bower configuration, this file path may be different
@@ -108,31 +107,30 @@ Multiple classes can be called by the CSS supplied within this component. They a
 
 ## Banner General
 
-.dash-banner-container 							: This class is required as the initial wrapper.
-.dash-banner 									: This activates the initial banner, alone it will provide a generic banner with a gray background.
-.dash-banner--undefined 						: A gray background by default, this class is meant to be overwritten to any color needed. apply this after .dash-banner has been applied
+`.dash-banner-container` 							: This class is required as the initial wrapper.
+`.dash-banner` 									: This activates the initial banner, alone it will provide a generic banner with a gray background.
+`.dash-banner--undefined` 						: A gray background by default, this class is meant to be overwritten to any color needed. apply this after .dash-banner has been applied
 
 ## Banner Colors
 
-.dash-banner--error || .dash-banner--red  		: The typical dash red as a banner background.
-.dash-banner--success || .dash-banner--green  	: The typical dash green as a banner background.
-.dash-banner--blue  							: The typical dash blue as a banner background.
-.dash-banner--gray || .dash-banner--grey 		: The typical dash gray/grey as a banner background.
-.dash-banner--orange							: The typical dash orange as a banner background.
-.dash-banner--purple							: The typical dash purple as a banner background.
+`.dash-banner--error` || `.dash-banner--red`  		: The typical dash red as a banner background.
+`.dash-banner--success` || `.dash-banner--green`  	: The typical dash green as a banner background.
+`.dash-banner--blue`  							: The typical dash blue as a banner background.
+`.dash-banner--gray` || `.dash-banner--grey` 		: The typical dash gray/grey as a banner background.
+`.dash-banner--orange`							: The typical dash orange as a banner background.
+`.dash-banner--purple`							: The typical dash purple as a banner background.
 
 ## Banner Other 
 
-.dash-banner--close								: This displays the close icon on a banner, currently this functionality is not enabled by any banner
-.dash-banner--icon								: The size, color, and alignment of the icons displayed by the banner
-.dash-banner--title								: The size, color, and alignment of the text displayed by the banner
-.dash-banner--row 								: This class provides a simple fix to the normal dash "row" class to prevent overflow within banners. This class should only be added to the "row" containing element for the banner.
-.dashing-icon--undefined						: An icon to be overwritten, displays alert-filled by default.
+`.dash-banner--close`								: This displays the close icon on a banner, currently this functionality is not enabled by any banner
+`.dash-banner--icon`								: The size, color, and alignment of the icons displayed by the banner
+`.dash-banner--title`								: The size, color, and alignment of the text displayed by the banner
+`.dash-banner--row` 								: This class provides a simple fix to the normal dash "row" class to prevent overflow within banners. This class should only be added to the "row" containing element for the banner.
+`.dashing-icon--undefined`						: An icon to be overwritten, displays alert-filled by default.
 
 # Banner Example
 
-```
-html
+```html
 <div data-id="dash-banner-container">
 	<div>
 		<div data-id="dash-banner" class="dash-banner dash-banner--error">
