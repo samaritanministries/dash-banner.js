@@ -131,6 +131,8 @@ Multiple classes can be called by the CSS supplied within this component. They a
 
 # Banner Example
 
+```
+html
 <div data-id="dash-banner-container">
 	<div>
 		<div data-id="dash-banner" class="dash-banner dash-banner--error">
@@ -141,8 +143,9 @@ Multiple classes can be called by the CSS supplied within this component. They a
     			<i class="dashing-icon dashing-icon--close dashing-icon--white"></i>
     		</div>
   		</div>
-  	</div>
+	</div>
 </div>
+```
 
 # License
 
