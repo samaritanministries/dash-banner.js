@@ -122,15 +122,24 @@ Multiple classes can be called by the CSS supplied within this component. They a
 
 ## Banner Other 
 
-`.dash-banner--close`								: This displays the close icon on a banner, currently this functionality is not enabled by any banner
-`.dash-banner--icon`								: The size, color, and alignment of the icons displayed by the banner
-`.dash-banner--title`								: The size, color, and alignment of the text displayed by the banner
-`.dash-banner--row` 								: This class provides a simple fix to the normal dash "row" class to prevent overflow within banners. This class should only be added to the "row" containing element for the banner.
-`.dashing-icon--undefined`						: An icon to be overwritten, displays alert-filled by default.
+<dl>
+  <dt>.dash-banner--close</dt>
+  <dd>This displays the close icon on a banner, currently this functionality is not enabled by any banner</dd>
+<dt>.dash-banner--icon</dt>
+<dd>The size, color, and alignment of the icons displayed by the banner</dd>
+<dt>.dash-banner--title</dt>
+<dd>The size, color, and alignment of the text displayed by the banner</dd>
+<dt>.dash-banner--row</dt>
+<dd>This class provides a simple fix to the normal dash "row" class to prevent overflow within banners. This class should only be added to the "row" containing element for the banner</dd>
+<dt>.dashing-icon--undefined</dt> 
+<dd>An icon to be overwritten, displays alert-filled by default</dd>
+</dl>
+
 
 # Banner Example
 
 ```html
+
 <div data-id="dash-banner-container">
 	<div>
 		<div data-id="dash-banner" class="dash-banner dash-banner--error">
@@ -143,6 +152,7 @@ Multiple classes can be called by the CSS supplied within this component. They a
   		</div>
 	</div>
 </div>
+
 ```
 
 # License
