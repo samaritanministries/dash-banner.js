@@ -4,7 +4,5 @@
         url('../dashing/font/dashing-icons.woff') format('woff');
 }
 
-@import '../scripts/bower_components/dashing/dashing';
-@import '../scripts/bower_components/dashing/sass/base/base';
-@import '../scripts/bower_components/dashing/sass/modules/modules';
+@import '../scripts/bower_components/dashing/dashing.scss';
 @import 'dash-banner';

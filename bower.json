@@ -1,6 +1,6 @@
 {
   "name": "dash-banner.js",
-  "version": "0.5.4",
+  "version": "1.0.0",
   "main": "dist/dash-banner.min.js",
 
   "homepage": "http://developers.samaritanministries.org/",
@@ -13,8 +13,7 @@
   },
 
   "dependencies": {
-    "dashing-core": "~1.0.6",
-    "dashing": "~0.3.8-beta"
+    "dashing": "~1.0.0"
   },
 
   "devDependencies": {

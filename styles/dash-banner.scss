@@ -62,6 +62,10 @@ $dash-banner--text-color: $white !default;
     background: $purple;
   }
 
+  &.dash-banner--red {
+    background: $red;
+  }
+
   .dash-banner--title {
     color: $dash-banner--text-color;
     display: inline-block;
