@@ -5,24 +5,15 @@
     "type": "git",
     "url": "git://git@github.com:samaritanministries/dash-banner.js.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "webpack": "^1.13.3"
+  },
   "devDependencies": {
-    "grunt":                "~0.4.1",
-    "grunt-contrib-clean":  "~0.6.0",
-    "grunt-contrib-coffee": "~0.13.0",
-    "grunt-contrib-copy":   "~0.7.0",
-    "grunt-contrib-jst":    "~0.6.0",
-    "grunt-sass":           "~1.1.0",
-    "grunt-contrib-uglify": "~0.2.0",
-    "load-grunt-tasks":     "~0.1.0",
-    "phantomjs":            "~1.9.16",
-    "testem":               "~0.7.6"
+    "coffee-loader": "^0.7.2",
+    "coffee-script": "^1.12.0",
+    "ejs-compiled-loader": "^1.1.0"
   },
   "scripts": {
-    "test": "testem ci",
-    "testem": "testem"
-  },
-  "engines": {
-    "node": ">=0.8.0"
+    "webpack": "webpack --config webpack.config.js --progress --colors --show-details"
   }
 }

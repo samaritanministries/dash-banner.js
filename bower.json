@@ -1,7 +1,7 @@
 {
   "name": "dash-banner.js",
   "version": "1.0.0",
-  "main": "dist/dash-banner.min.js",
+  "main": null,
 
   "homepage": "http://developers.samaritanministries.org/",
   "description": "Alert banner for the Dash Framework",
