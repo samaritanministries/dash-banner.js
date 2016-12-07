@@ -12,6 +12,7 @@ class DashBanner.View extends Backbone.View
     "click [data-id=banner-close]": "_hideBanner"
 
   @flashSuccess: (message) ->
+    console.log DashBannerJST
     view = new DashBanner.View
       message: message
       status: "success"

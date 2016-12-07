@@ -1,6 +1,6 @@
-class Foo
+namespace("Foo")
+
+class Foo.Bar
 
   bar: ->
     "Hello world"
-
-window.Foo = Foo

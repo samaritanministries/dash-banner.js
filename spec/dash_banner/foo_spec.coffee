@@ -1,4 +1,4 @@
-describe "Foo", ->
+describe "Foo.Bar", ->
 
   it "does something", ->
-    expect(new Foo().bar()).toEqual("Hello world")
+    expect(new Foo.Bar().bar()).toEqual("Hello world")
