@@ -7,13 +7,14 @@ module.exports = {
   entry: [
     "./scripts/bower_components/backbone/backbone.js",
     "./scripts/namespace.js",
-    "./scripts/dash_banner/action_template.ejs",
-    "./scripts/dash_banner/flash_template.ejs",
-    "./scripts/dash_banner/show_template.ejs",
-    "./scripts/dash_banner/view.coffee",
-
-    "./scripts/sample_app/show_banner_view.coffee",
-    "./scripts/sample_app/main.coffee"
+    "./scripts/dash_banner/foo.coffee"
+    // "./scripts/dash_banner/action_template.ejs",
+    // "./scripts/dash_banner/flash_template.ejs",
+    // "./scripts/dash_banner/show_template.ejs",
+    // "./scripts/dash_banner/view.coffee",
+    //
+    // "./scripts/sample_app/show_banner_view.coffee",
+    // "./scripts/sample_app/main.coffee"
   ],
   output: {
     filename: "new-dash-banner.js",
