@@ -1,3 +1,6 @@
+# FooBar = Foo.Bar
+require("dash_banner/foo.coffee")
+
 describe "Foo.Bar", ->
 
   it "does something", ->
