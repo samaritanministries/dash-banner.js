@@ -5,7 +5,9 @@
     "type": "git",
     "url": "git://git@github.com:samaritanministries/dash-banner.js.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "webpack": "^1.14.0"
+  },
   "devDependencies": {
     "decaffeinate": "^2.32.1",
     "grunt": "~0.4.1",
@@ -20,8 +22,7 @@
     "testem": "~0.7.6"
   },
   "scripts": {
-    "test": "testem ci",
-    "testem": "testem"
+    "webpack": "webpack --config webpack.config.js --progress --colors --show-details"
   },
   "engines": {
     "node": ">=0.8.0"
