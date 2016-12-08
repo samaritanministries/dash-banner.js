@@ -8,11 +8,11 @@ module.exports = function (wallaby) {
       "bower_components/jasmine-jquery/lib/jasmine-jquery.js",
       "scripts/namespace.js",
       ".tmp/scripts/dash_banner/templates.js",
-      "scripts/dash_banner/view.coffee"
+      "scripts/dash_banner/view.js"
     ],
 
     tests: [
-      "spec/**/*.coffee"
+      "spec/**/*_spec.js"
     ],
   };
 
