@@ -7,6 +7,16 @@ module.exports = {
   entry: [
     "./scripts/dash_banner/foo.js",
   ],
+  module: {
+    loaders: [{
+      include: [
+        path.join(PROJECT_ROOT, "scripts"),
+        path.join(PROJECT_ROOT, "spec")
+      ],
+      loader: "babel-loader",
+      test: /\.js$/
+    }]
+  },
   output: {
     filename: "new-dash-banner.js",
     path: "dist"

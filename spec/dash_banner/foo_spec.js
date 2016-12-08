@@ -1,5 +1,5 @@
-describe("foo", function() {
-  it("exists", function() {
+describe("foo", () => {
+  it("exists", () => {
     expect(Foo).toEqual("Bar")
   });
 });
