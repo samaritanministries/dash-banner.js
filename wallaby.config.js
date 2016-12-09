@@ -11,6 +11,8 @@ module.exports = function (wallaby) {
 
     files: [
       {pattern: "bower_components/underscore/underscore.js", load: true},
+      {pattern: "bower_components/jquery/dist/jquery.js", load: true},
+      {pattern: "bower_components/backbone/backbone.js", load: true},
       {pattern: "scripts/dash_banner/foo.js", load: true}
     ],
 

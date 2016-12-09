@@ -1,3 +1,12 @@
+class FooView extends Backbone.View {
+
+  render() {
+    this.$el.html("Hello World")
+    return this
+  }
+
+}
+window.FooView = FooView
 function doubled(numbers) {
   return _.map(numbers, (number) => {
     return number * 2;
