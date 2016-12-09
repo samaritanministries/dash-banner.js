@@ -5,6 +5,7 @@ const PROJECT_ROOT = path.resolve(__dirname);
 
 module.exports = {
   entry: [
+    "./bower_components/underscore/underscore.js",
     "./scripts/dash_banner/foo.js",
   ],
   module: {
@@ -20,5 +21,14 @@ module.exports = {
   output: {
     filename: "new-dash-banner.js",
     path: "dist"
+  }, plugins: [
+    new webpack.ResolverPlugin(
+      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
+    )
+  ], resolve: {
+    modulesDirectories: [
+      path.join(PROJECT_ROOT, "node_modules"),
+      path.join(PROJECT_ROOT, "bower_components")
+    ]
   }
 }
