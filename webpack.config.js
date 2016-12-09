@@ -31,7 +31,9 @@ module.exports = {
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
     )
   ], resolve: {
-    modulesDirectories: [
+    alias: {
+      "dash_banner": path.join(PROJECT_ROOT, "scripts", "dash_banner"),
+    }, modulesDirectories: [
       path.join(PROJECT_ROOT, "node_modules"),
       path.join(PROJECT_ROOT, "bower_components")
     ]
