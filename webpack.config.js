@@ -7,6 +7,7 @@ module.exports = {
   entry: [
     "./bower_components/underscore/underscore.js",
     "./bower_components/backbone/backbone.js",
+    "./scripts/dash_banner/templates.js",
     "./scripts/dash_banner/foo.js",
   ],
   module: {
@@ -23,6 +24,9 @@ module.exports = {
     filename: "new-dash-banner.js",
     path: "dist"
   }, plugins: [
+    new webpack.ProvidePlugin({
+      templates: "dash_banner/templates"
+    }),
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
     )

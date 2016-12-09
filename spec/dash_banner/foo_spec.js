@@ -7,6 +7,10 @@ describe("foo", () => {
     expect(doubled([1, 2, 3])).toEqual([2, 4, 6])
   });
 
+  it("accesses a global function", () => {
+    expect(myfunc()).toEqual("Global")
+  });
+
   describe("Rendering the view", () => {
     it("works", () => {
       let view = new FooView()
