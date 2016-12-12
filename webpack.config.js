@@ -12,7 +12,7 @@ module.exports = {
     "./scripts/dash_banner/view.js"
   ],
   output: {
-    filename: "new-dash-banner.js",
+    filename: "dash-banner.js",
     path: "dist"
   },
   module: {
