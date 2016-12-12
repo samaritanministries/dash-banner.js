@@ -18,6 +18,10 @@ module.exports = {
       ],
       loader: "babel-loader",
       test: /\.js$/
+    }, {
+      include: path.join(PROJECT_ROOT, "scripts/dash_banner"),
+      loader: "ejs-compiled",
+      test: /\.ejs$/
     }]
   },
   output: {

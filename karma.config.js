@@ -1,9 +1,10 @@
-// var webpack = require("karma-webpack");
-// var webpackConfig = require("./webpack.config");
+var webpack = require("karma-webpack");
+var webpackConfig = require("./webpack.config");
 // var path = require("path");
 
 // const PROJECT_ROOT = path.resolve(__dirname);
-
+webpackConfig.entry = webpackConfig.entry - ["./scripts/dash_banner/templates.js"]
+// webpackConfig.entry = []
 // webpackConfig.module.loaders.push({
 //   test: /\.js$/,
 //   include: path.join(PROJECT_ROOT, "test"),
@@ -15,27 +16,28 @@ module.exports = function (config) {
   config.set({
     frameworks: [ "jasmine" ],
     files: [
+      "scripts/dash_banner/templates.js",
       "scripts/dash_banner/simple.js",
       "spec/dash_banner/simple_spec.js"
     ],
-    // plugins: [
-    //   webpack,
-    //   "karma-spec-reporter",
-    //   "karma-jasmine",
-    //   "karma-phantomjs-launcher"
-    // ],
+    plugins: [
+      "karma-jasmine",
+      "karma-phantomjs-launcher",
+      "karma-spec-reporter",
+      webpack
+    ],
     browsers: [ "PhantomJS" ],
-    // preprocessors: {
-    //   "test/**/*_spec.js": ["webpack"],
-    //   "app/**/*.js": ["webpack"]
-    // },
-    // logLevel: config.LOG_INFO,
+    preprocessors: {
+      "spec/**/*_spec.js": ["webpack"],
+      "scripts/**/*.js": ["webpack"]
+    },
+    logLevel: config.LOG_INFO,
     reporters: ["spec"],
-    singleRun: false
+    singleRun: false,
     // phantomjsLauncher: {
     //   exitOnResourceError:true
     // },
-    // webpack: webpackConfig,
+    webpack: webpackConfig
     // webpackMiddleware: { noInfo: true }
   });
 };
