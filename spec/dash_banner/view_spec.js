@@ -148,17 +148,40 @@ describe("DashBanner.View", () => {
 
   describe("Custom banners", () => {
 
-    it("shows a success message", () => {
+    it("flashes a success message", () => {
       var view = DashBanner.View.flashSuccess("Great Success!");
+      expect(view.$("[data-id=dash-banner]")).toHaveClass("dash-banner--success");
+      expect(view.$("[data-id=banner-icon]")).toHaveClass("dashing-icon--checkmark");
+      expect(view.$("[data-id=banner-message]")).toHaveText("Great Success!");
+    });
+
+    it("flashes an error message", () => {
+      var view = DashBanner.View.flashError("Something Bad Happened!");
+
+      expect(view.$("[data-id=dash-banner]")).toHaveClass("dash-banner--error");
+      expect(view.$("[data-id=banner-icon]")).toHaveClass("dashing-icon--alert-filled");
+      expect(view.$("[data-id=banner-message]").text()).toContain("Something Bad Happened!");
+    });
+
+    it("flashes an action", () => {
+      var view = DashBanner.View.flashAction("Some Action")
+
+      expect(view.$("[data-id=dash-banner]")).toHaveClass("dash-banner--undefined");
+      expect(view.$("[data-id=banner-message]").text()).toContain("Some Action");
+    })
+
+    it("shows a success message", () => {
+      var view = DashBanner.View.showSuccess("Great Success!");
+
       expect(view.$("[data-id=dash-banner]")).toHaveClass("dash-banner--success");
       expect(view.$("[data-id=banner-message]")).toHaveText("Great Success!");
     });
 
     it("shows an error message", () => {
-      var view = DashBanner.View.flashError("Something Bad Happened!");
+      var view = DashBanner.View.showError("Something Bad Happened!");
 
       expect(view.$("[data-id=dash-banner]")).toHaveClass("dash-banner--error");
-      expect(view.$("[data-id=banner-message]").text()).toContain("Something Bad Happened!");
+      expect(view.$("[data-id=banner-message]")).toHaveText("Something Bad Happened!");
     });
 
     it("shows an action message", () => {
@@ -168,4 +191,35 @@ describe("DashBanner.View", () => {
       expect(view.$("[data-id=banner-message]").text()).toContain("Something Bad Happened!");
     });
   });
+
+  describe("Closing the banner", () => {
+    it("removes the banner element", () => {
+      let view = showBanner("Hello");
+
+      view.$("[data-id=banner-close]").click()
+
+      expect($("[data-id=dash-banner-container] [data-id=dash-banner]")).not.toExist();
+    });
+
+    it("removes a banner in the global container", () => {
+      let view = showBanner("Hello");
+
+      DashBanner.View.closeBanner()
+
+      expect($("[data-id=dash-banner-container] [data-id=dash-banner]")).not.toExist();
+    });
+
+    it("removes a banner in the given container", () => {
+      let container = $("<div>")
+      new DashBanner.View({
+        message: "Some Message",
+        target: container
+      }).show(DashBanner.View.SHOW_TEMPLATE);
+
+      DashBanner.View.closeBanner(container)
+
+      expect(container).toBeEmpty()
+    });
+  });
+
 });
