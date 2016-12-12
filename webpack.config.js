@@ -7,8 +7,7 @@ module.exports = {
   entry: [
     "./bower_components/jquery/dist/jquery.js",
     "./bower_components/backbone/backbone.js",
-    "./scripts/namespace.js",
-    "./scripts/dash_banner/view.js"
+    "./scripts/dash_banner/load.js"
   ],
   output: {
     filename: "dash-banner.js",

@@ -2,16 +2,14 @@ import ACTION_TEMPLATE from "dash_banner/action_template.ejs"
 import FLASH_TEMPLATE from "dash_banner/flash_template.ejs"
 import SHOW_TEMPLATE from "dash_banner/show_template.ejs"
 
-namespace('DashBanner')
-
-DashBanner.View = class View extends Backbone.View {
+DashBannerView = class View extends Backbone.View {
 
   events() {
     return {"click [data-id=banner-close]": "_hideBanner"}
   }
 
   static flashSuccess(message) {
-    let view = new DashBanner.View({
+    let view = new DashBannerView({
       message: message,
       status: "success",
       target: $("[data-id=dash-banner-container]")
@@ -20,7 +18,7 @@ DashBanner.View = class View extends Backbone.View {
   }
 
   static flashError(message) {
-    let view = new DashBanner.View({
+    let view = new DashBannerView({
       message: message,
       status: "error",
       target: $("[data-id=dash-banner-container]")
@@ -29,7 +27,7 @@ DashBanner.View = class View extends Backbone.View {
   }
 
   static flashAction(message, status, target) {
-    let view = new DashBanner.View({
+    let view = new DashBannerView({
       message: message,
       status: status,
       target: target || $("[data-id=dash-banner-container]")
@@ -38,7 +36,7 @@ DashBanner.View = class View extends Backbone.View {
   }
 
   static showSuccess(message) {
-    let view = new DashBanner.View({
+    let view = new DashBannerView({
       message: message,
       status: "success",
       target: $("[data-id=dash-banner-container]")
@@ -47,7 +45,7 @@ DashBanner.View = class View extends Backbone.View {
   }
 
   static showError(message) {
-    let view = new DashBanner.View({
+    let view = new DashBannerView({
       message: message,
       status: "error",
       target: $("[data-id=dash-banner-container]")
@@ -56,7 +54,7 @@ DashBanner.View = class View extends Backbone.View {
   }
 
   static showAction(message, status, target) {
-    let view = new DashBanner.View({
+    let view = new DashBannerView({
       message: message,
       status: status,
       target: target || $("[data-id=dash-banner-container]")
@@ -65,7 +63,7 @@ DashBanner.View = class View extends Backbone.View {
   }
 
   static closeBanner(target) {
-    let view = new DashBanner.View({
+    let view = new DashBannerView({
       target: target || $("[data-id=dash-banner-container]")
     })
     view.bannerContainer.html('')
@@ -79,8 +77,8 @@ DashBanner.View = class View extends Backbone.View {
 
   flash(template) {
     this.render(template)
-    let timerId = setTimeout(this._hideBanner.bind(this), DashBanner.View.TIME_VISIBLE_IN_MILLISECONDS)
-    DashBanner.View.ACTIVE_TIMER_ID = timerId
+    let timerId = setTimeout(this._hideBanner.bind(this), DashBannerView.TIME_VISIBLE_IN_MILLISECONDS)
+    DashBannerView.ACTIVE_TIMER_ID = timerId
     return this
   }
 
@@ -101,18 +99,18 @@ DashBanner.View = class View extends Backbone.View {
     } else {
       this._iconEl().addClass("dashing-icon--" + this.status)
     }
-    if (DashBanner.View.ACTIVE_TIMER_ID) {
-      clearTimeout(DashBanner.View.ACTIVE_TIMER_ID)
+    if (DashBannerView.ACTIVE_TIMER_ID) {
+      clearTimeout(DashBannerView.ACTIVE_TIMER_ID)
     }
     return this
   }
 
   activeTimerID() {
-    return DashBanner.View.ACTIVE_TIMER_ID
+    return DashBannerView.ACTIVE_TIMER_ID
   }
 
   _hideBanner() {
-    DashBanner.View.ACTIVE_TIMER_ID = null
+    DashBannerView.ACTIVE_TIMER_ID = null
     this._bannerEl().slideUp(150, () => {
       this.bannerContainer.empty()
     })
@@ -131,5 +129,7 @@ DashBanner.View = class View extends Backbone.View {
   }
 
 }
-DashBanner.View.ACTIVE_TIMER_ID = null
-DashBanner.View.TIME_VISIBLE_IN_MILLISECONDS = 3000
+DashBannerView.ACTIVE_TIMER_ID = null
+DashBannerView.TIME_VISIBLE_IN_MILLISECONDS = 3000
+
+export default DashBannerView

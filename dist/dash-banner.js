@@ -46,8 +46,7 @@
 
 	__webpack_require__(1);
 	__webpack_require__(2);
-	__webpack_require__(4);
-	module.exports = __webpack_require__(5);
+	module.exports = __webpack_require__(4);
 
 
 /***/ },
@@ -13626,28 +13625,27 @@
 
 /***/ },
 /* 4 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	(function (underscore) {
-	  'use strict';
+	var _view = __webpack_require__(5);
 
-	  window.namespace = function (string) {
-	    var current = window,
-	        names = string.split('.'),
-	        name;
+	var _view2 = _interopRequireDefault(_view);
 
-	    while (name = names.shift()) {
-	      current[name] = current[name] || {};
-	      current = current[name];
-	    }
-	  };
-	})(window._);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	window.DashBanner = {
+	  View: _view2.default
+	};
 
 /***/ },
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	/* WEBPACK VAR INJECTION */(function($) {Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _action_template = __webpack_require__(6);
 
@@ -13669,9 +13667,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	namespace('DashBanner');
-
-	DashBanner.View = function (_Backbone$View) {
+	DashBannerView = function (_Backbone$View) {
 	  _inherits(View, _Backbone$View);
 
 	  function View() {
@@ -13696,8 +13692,8 @@
 	    key: "flash",
 	    value: function flash(template) {
 	      this.render(template);
-	      var timerId = setTimeout(this._hideBanner.bind(this), DashBanner.View.TIME_VISIBLE_IN_MILLISECONDS);
-	      DashBanner.View.ACTIVE_TIMER_ID = timerId;
+	      var timerId = setTimeout(this._hideBanner.bind(this), DashBannerView.TIME_VISIBLE_IN_MILLISECONDS);
+	      DashBannerView.ACTIVE_TIMER_ID = timerId;
 	      return this;
 	    }
 	  }, {
@@ -13720,22 +13716,22 @@
 	      } else {
 	        this._iconEl().addClass("dashing-icon--" + this.status);
 	      }
-	      if (DashBanner.View.ACTIVE_TIMER_ID) {
-	        clearTimeout(DashBanner.View.ACTIVE_TIMER_ID);
+	      if (DashBannerView.ACTIVE_TIMER_ID) {
+	        clearTimeout(DashBannerView.ACTIVE_TIMER_ID);
 	      }
 	      return this;
 	    }
 	  }, {
 	    key: "activeTimerID",
 	    value: function activeTimerID() {
-	      return DashBanner.View.ACTIVE_TIMER_ID;
+	      return DashBannerView.ACTIVE_TIMER_ID;
 	    }
 	  }, {
 	    key: "_hideBanner",
 	    value: function _hideBanner() {
 	      var _this2 = this;
 
-	      DashBanner.View.ACTIVE_TIMER_ID = null;
+	      DashBannerView.ACTIVE_TIMER_ID = null;
 	      this._bannerEl().slideUp(150, function () {
 	        _this2.bannerContainer.empty();
 	      });
@@ -13758,7 +13754,7 @@
 	  }], [{
 	    key: "flashSuccess",
 	    value: function flashSuccess(message) {
-	      var view = new DashBanner.View({
+	      var view = new DashBannerView({
 	        message: message,
 	        status: "success",
 	        target: $("[data-id=dash-banner-container]")
@@ -13768,7 +13764,7 @@
 	  }, {
 	    key: "flashError",
 	    value: function flashError(message) {
-	      var view = new DashBanner.View({
+	      var view = new DashBannerView({
 	        message: message,
 	        status: "error",
 	        target: $("[data-id=dash-banner-container]")
@@ -13778,7 +13774,7 @@
 	  }, {
 	    key: "flashAction",
 	    value: function flashAction(message, status, target) {
-	      var view = new DashBanner.View({
+	      var view = new DashBannerView({
 	        message: message,
 	        status: status,
 	        target: target || $("[data-id=dash-banner-container]")
@@ -13788,7 +13784,7 @@
 	  }, {
 	    key: "showSuccess",
 	    value: function showSuccess(message) {
-	      var view = new DashBanner.View({
+	      var view = new DashBannerView({
 	        message: message,
 	        status: "success",
 	        target: $("[data-id=dash-banner-container]")
@@ -13798,7 +13794,7 @@
 	  }, {
 	    key: "showError",
 	    value: function showError(message) {
-	      var view = new DashBanner.View({
+	      var view = new DashBannerView({
 	        message: message,
 	        status: "error",
 	        target: $("[data-id=dash-banner-container]")
@@ -13808,7 +13804,7 @@
 	  }, {
 	    key: "showAction",
 	    value: function showAction(message, status, target) {
-	      var view = new DashBanner.View({
+	      var view = new DashBannerView({
 	        message: message,
 	        status: status,
 	        target: target || $("[data-id=dash-banner-container]")
@@ -13818,7 +13814,7 @@
 	  }, {
 	    key: "closeBanner",
 	    value: function closeBanner(target) {
-	      var view = new DashBanner.View({
+	      var view = new DashBannerView({
 	        target: target || $("[data-id=dash-banner-container]")
 	      });
 	      view.bannerContainer.html('');
@@ -13827,8 +13823,10 @@
 
 	  return View;
 	}(Backbone.View);
-	DashBanner.View.ACTIVE_TIMER_ID = null;
-	DashBanner.View.TIME_VISIBLE_IN_MILLISECONDS = 3000;
+	DashBannerView.ACTIVE_TIMER_ID = null;
+	DashBannerView.TIME_VISIBLE_IN_MILLISECONDS = 3000;
+
+	exports.default = DashBannerView;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },

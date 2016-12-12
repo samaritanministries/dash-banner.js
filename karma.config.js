@@ -10,8 +10,6 @@ module.exports = function (config) {
       "bower_components/jasmine-jquery/lib/jasmine-jquery.js",
       "bower_components/underscore/underscore.js",
       "bower_components/backbone/backbone.js",
-      "scripts/namespace.js",
-      "scripts/dash_banner/view.js",
       "spec/dash_banner/view_spec.js"
     ],
     plugins: [

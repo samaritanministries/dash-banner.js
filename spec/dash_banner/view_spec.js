@@ -1,8 +1,9 @@
 import ACTION_TEMPLATE from "dash_banner/action_template.ejs"
 import FLASH_TEMPLATE from "dash_banner/flash_template.ejs"
 import SHOW_TEMPLATE from "dash_banner/show_template.ejs"
+import DashBannerView from "dash_banner/view.js"
 
-describe("DashBanner.View", () => {
+describe("DashBannerView", () => {
 
   var fixture;
 
@@ -17,7 +18,7 @@ describe("DashBanner.View", () => {
   });
 
   var flashBanner = function(message) {
-    var view = new DashBanner.View({
+    var view = new DashBannerView({
       message: message,
       target: $("[data-id=dash-banner-container]")
     });
@@ -25,7 +26,7 @@ describe("DashBanner.View", () => {
   };
 
   var showBanner = function(message) {
-    var view = new DashBanner.View({
+    var view = new DashBannerView({
       message: message,
       target: $("[data-id=dash-banner-container]")
     });
@@ -33,7 +34,7 @@ describe("DashBanner.View", () => {
   };
 
   var showAction = function(message, status, target) {
-    var view = new DashBanner.View({
+    var view = new DashBannerView({
       message: message,
       status: status,
       target: target || $("[data-id=dash-banner-container]")
@@ -58,28 +59,28 @@ describe("DashBanner.View", () => {
     it("removes the banner after a given amount of time", () => {
       var view = flashBanner("Hello");
 
-      jasmine.clock().tick(DashBanner.View.TIME_VISIBLE_IN_MILLISECONDS - 1);
+      jasmine.clock().tick(DashBannerView.TIME_VISIBLE_IN_MILLISECONDS - 1);
 
       expect($("[data-id=dash-banner-container] [data-id=dash-banner]")).toExist();
 
       jasmine.clock().tick(1);
       expect($("[data-id=dash-banner-container] [data-id=dash-banner]")).not.toExist();
-      expect(new DashBanner.View({}).activeTimerID()).toBeNull();
+      expect(new DashBannerView({}).activeTimerID()).toBeNull();
     });
 
     it("shows and hides a second banner", () => {
       var view = flashBanner("Hello");
-      jasmine.clock().tick(DashBanner.View.TIME_VISIBLE_IN_MILLISECONDS + 1);
+      jasmine.clock().tick(DashBannerView.TIME_VISIBLE_IN_MILLISECONDS + 1);
 
       view = flashBanner("Hello Again");
 
-      jasmine.clock().tick(DashBanner.View.TIME_VISIBLE_IN_MILLISECONDS);
+      jasmine.clock().tick(DashBannerView.TIME_VISIBLE_IN_MILLISECONDS);
       expect($("[data-id=dash-banner-container] [data-id=dash-banner]")).not.toExist();
     });
 
     it("resets the banner countdown", () => {
       var view = flashBanner("Hello");
-      jasmine.clock().tick(DashBanner.View.TIME_VISIBLE_IN_MILLISECONDS - 1);
+      jasmine.clock().tick(DashBannerView.TIME_VISIBLE_IN_MILLISECONDS - 1);
 
       view = flashBanner("Hello Again");
       jasmine.clock().tick(1);
@@ -106,7 +107,7 @@ describe("DashBanner.View", () => {
       jasmine.clock().tick(1);
 
       view = showBanner("Hello Again");
-      jasmine.clock().tick(DashBanner.View.TIME_VISIBLE_IN_MILLISECONDS);
+      jasmine.clock().tick(DashBannerView.TIME_VISIBLE_IN_MILLISECONDS);
 
       expect($("[data-id=dash-banner-container] [data-id=dash-banner]")).toExist();
     });
@@ -116,7 +117,7 @@ describe("DashBanner.View", () => {
       jasmine.clock().tick(1);
 
       view = flashBanner("Hello Again");
-      jasmine.clock().tick(DashBanner.View.TIME_VISIBLE_IN_MILLISECONDS);
+      jasmine.clock().tick(DashBannerView.TIME_VISIBLE_IN_MILLISECONDS);
 
       expect($("[data-id=dash-banner-container] [data-id=dash-banner]")).not.toExist();
     });
@@ -155,14 +156,14 @@ describe("DashBanner.View", () => {
   describe("Custom banners", () => {
 
     it("flashes a success message", () => {
-      var view = DashBanner.View.flashSuccess("Great Success!");
+      var view = DashBannerView.flashSuccess("Great Success!");
       expect(view.$("[data-id=dash-banner]")).toHaveClass("dash-banner--success");
       expect(view.$("[data-id=banner-icon]")).toHaveClass("dashing-icon--checkmark");
       expect(view.$("[data-id=banner-message]")).toHaveText("Great Success!");
     });
 
     it("flashes an error message", () => {
-      var view = DashBanner.View.flashError("Something Bad Happened!");
+      var view = DashBannerView.flashError("Something Bad Happened!");
 
       expect(view.$("[data-id=dash-banner]")).toHaveClass("dash-banner--error");
       expect(view.$("[data-id=banner-icon]")).toHaveClass("dashing-icon--alert-filled");
@@ -170,28 +171,28 @@ describe("DashBanner.View", () => {
     });
 
     it("flashes an action", () => {
-      var view = DashBanner.View.flashAction("Some Action")
+      var view = DashBannerView.flashAction("Some Action")
 
       expect(view.$("[data-id=dash-banner]")).toHaveClass("dash-banner--undefined");
       expect(view.$("[data-id=banner-message]").text()).toContain("Some Action");
     })
 
     it("shows a success message", () => {
-      var view = DashBanner.View.showSuccess("Great Success!");
+      var view = DashBannerView.showSuccess("Great Success!");
 
       expect(view.$("[data-id=dash-banner]")).toHaveClass("dash-banner--success");
       expect(view.$("[data-id=banner-message]")).toHaveText("Great Success!");
     });
 
     it("shows an error message", () => {
-      var view = DashBanner.View.showError("Something Bad Happened!");
+      var view = DashBannerView.showError("Something Bad Happened!");
 
       expect(view.$("[data-id=dash-banner]")).toHaveClass("dash-banner--error");
       expect(view.$("[data-id=banner-message]")).toHaveText("Something Bad Happened!");
     });
 
     it("shows an action message", () => {
-      var view = DashBanner.View.showAction("Something Bad Happened!");
+      var view = DashBannerView.showAction("Something Bad Happened!");
 
       expect(view.$("[data-id=dash-banner]")).toHaveClass("dash-banner--undefined");
       expect(view.$("[data-id=banner-message]").text()).toContain("Something Bad Happened!");
@@ -210,19 +211,19 @@ describe("DashBanner.View", () => {
     it("removes a banner in the global container", () => {
       let view = showBanner("Hello");
 
-      DashBanner.View.closeBanner()
+      DashBannerView.closeBanner()
 
       expect($("[data-id=dash-banner-container] [data-id=dash-banner]")).not.toExist();
     });
 
     it("removes a banner in the given container", () => {
       let container = $("<div>")
-      new DashBanner.View({
+      new DashBannerView({
         message: "Some Message",
         target: container
       }).show(SHOW_TEMPLATE);
 
-      DashBanner.View.closeBanner(container)
+      DashBannerView.closeBanner(container)
 
       expect(container).toBeEmpty()
     });
