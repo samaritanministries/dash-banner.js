@@ -5,6 +5,6 @@ describe("Simple tests", () => {
 
   it("has templates", () => {
     expect(DashBannerJST).toBeDefined()
-    expect(DashBannerJST["scripts/dash_banner/foo_template.ejs"]().trim()).toEqual("Hello world")
+    expect(DashBannerJST["scripts/dash_banner/action_template.ejs"]).toBeDefined()
   });
 });

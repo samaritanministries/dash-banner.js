@@ -5,11 +5,19 @@ const PROJECT_ROOT = path.resolve(__dirname);
 
 module.exports = {
   entry: [
-    "./bower_components/underscore/underscore.js",
+    "./bower_components/jquery/dist/jquery.js",
     "./bower_components/backbone/backbone.js",
+    "./scripts/namespace.js",
     "./scripts/dash_banner/templates.js",
-    "./scripts/dash_banner/foo.js",
+    "./scripts/dash_banner/view.js",
+
+    "./scripts/sample_app/show_banner_view.js",
+    "./scripts/sample_app/main.js"
   ],
+  output: {
+    filename: "new-dash-banner.js",
+    path: "dist"
+  },
   module: {
     loaders: [{
       include: [
@@ -23,15 +31,10 @@ module.exports = {
       loader: "ejs-compiled",
       test: /\.ejs$/
     }]
-  },
-  output: {
-    filename: "new-dash-banner.js",
-    path: "dist"
   }, plugins: [
     new webpack.ProvidePlugin({
-      templates: "dash_banner/templates"
-    }),
-    new webpack.ResolverPlugin(
+      $: "jquery"
+    }), new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
     )
   ], resolve: {
