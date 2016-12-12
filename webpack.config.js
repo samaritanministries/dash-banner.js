@@ -9,10 +9,7 @@ module.exports = {
     "./bower_components/backbone/backbone.js",
     "./scripts/namespace.js",
     "./scripts/dash_banner/templates.js",
-    "./scripts/dash_banner/view.js",
-
-    "./scripts/sample_app/show_banner_view.js",
-    "./scripts/sample_app/main.js"
+    "./scripts/dash_banner/view.js"
   ],
   output: {
     filename: "new-dash-banner.js",
