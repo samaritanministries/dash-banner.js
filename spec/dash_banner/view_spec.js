@@ -1,3 +1,7 @@
+const ACTION_TEMPLATE =  require("dash_banner/action_template.ejs")
+const FLASH_TEMPLATE = require("dash_banner/flash_template.ejs")
+const SHOW_TEMPLATE = require("dash_banner/show_template.ejs")
+
 describe("DashBanner.View", () => {
 
   beforeEach(() => {
@@ -15,7 +19,7 @@ describe("DashBanner.View", () => {
       message: message,
       target: $("[data-id=dash-banner-container]")
     });
-    return view.flash(DashBanner.View.FLASH_TEMPLATE);
+    return view.flash(FLASH_TEMPLATE);
   };
 
   var showBanner = function(message) {
@@ -23,7 +27,7 @@ describe("DashBanner.View", () => {
       message: message,
       target: $("[data-id=dash-banner-container]")
     });
-    return view.show(DashBanner.View.SHOW_TEMPLATE);
+    return view.show(SHOW_TEMPLATE);
   };
 
   var showAction = function(message, status, target) {
@@ -32,7 +36,7 @@ describe("DashBanner.View", () => {
       status: status,
       target: target || $("[data-id=dash-banner-container]")
     });
-    return view.show(DashBanner.View.ACTION_TEMPLATE);
+    return view.show(ACTION_TEMPLATE);
   };
 
   describe(" - flash banner", () => {
@@ -214,7 +218,7 @@ describe("DashBanner.View", () => {
       new DashBanner.View({
         message: "Some Message",
         target: container
-      }).show(DashBanner.View.SHOW_TEMPLATE);
+      }).show(SHOW_TEMPLATE);
 
       DashBanner.View.closeBanner(container)
 

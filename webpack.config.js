@@ -8,7 +8,6 @@ module.exports = {
     "./bower_components/jquery/dist/jquery.js",
     "./bower_components/backbone/backbone.js",
     "./scripts/namespace.js",
-    "./scripts/dash_banner/templates.js",
     "./scripts/dash_banner/view.js"
   ],
   output: {

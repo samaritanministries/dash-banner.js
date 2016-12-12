@@ -1,3 +1,7 @@
+const ACTION_TEMPLATE = require("dash_banner/action_template.ejs")
+const FLASH_TEMPLATE = require("dash_banner/flash_template.ejs")
+const SHOW_TEMPLATE = require("dash_banner/show_template.ejs")
+
 namespace('DashBanner')
 
 DashBanner.View = class View extends Backbone.View {
@@ -12,7 +16,7 @@ DashBanner.View = class View extends Backbone.View {
       status: "success",
       target: $("[data-id=dash-banner-container]")
     })
-    return view.flash(DashBanner.View.FLASH_TEMPLATE)
+    return view.flash(FLASH_TEMPLATE)
   }
 
   static flashError(message) {
@@ -21,7 +25,7 @@ DashBanner.View = class View extends Backbone.View {
       status: "error",
       target: $("[data-id=dash-banner-container]")
     })
-    return view.flash(DashBanner.View.FLASH_TEMPLATE)
+    return view.flash(FLASH_TEMPLATE)
   }
 
   static flashAction(message, status, target) {
@@ -30,7 +34,7 @@ DashBanner.View = class View extends Backbone.View {
       status: status,
       target: target || $("[data-id=dash-banner-container]")
     })
-    return view.flash(DashBanner.View.ACTION_TEMPLATE)
+    return view.flash(ACTION_TEMPLATE)
   }
 
   static showSuccess(message) {
@@ -39,7 +43,7 @@ DashBanner.View = class View extends Backbone.View {
       status: "success",
       target: $("[data-id=dash-banner-container]")
     })
-    return view.show(DashBanner.View.SHOW_TEMPLATE)
+    return view.show(SHOW_TEMPLATE)
   }
 
   static showError(message) {
@@ -48,7 +52,7 @@ DashBanner.View = class View extends Backbone.View {
       status: "error",
       target: $("[data-id=dash-banner-container]")
     })
-    return view.show(DashBanner.View.SHOW_TEMPLATE)
+    return view.show(SHOW_TEMPLATE)
   }
 
   static showAction(message, status, target) {
@@ -57,7 +61,7 @@ DashBanner.View = class View extends Backbone.View {
       status: status,
       target: target || $("[data-id=dash-banner-container]")
     })
-    return view.show(DashBanner.View.ACTION_TEMPLATE)
+    return view.show(ACTION_TEMPLATE)
   }
 
   static closeBanner(target) {
@@ -127,8 +131,5 @@ DashBanner.View = class View extends Backbone.View {
   }
 
 }
-DashBanner.View.ACTION_TEMPLATE = DashBannerJST["scripts/dash_banner/action_template.ejs"]
-DashBanner.View.FLASH_TEMPLATE = DashBannerJST["scripts/dash_banner/flash_template.ejs"]
-DashBanner.View.SHOW_TEMPLATE = DashBannerJST["scripts/dash_banner/show_template.ejs"]
 DashBanner.View.ACTIVE_TIMER_ID = null
 DashBanner.View.TIME_VISIBLE_IN_MILLISECONDS = 3000
