@@ -1,11 +1,13 @@
-const ACTION_TEMPLATE =  require("dash_banner/action_template.ejs")
-const FLASH_TEMPLATE = require("dash_banner/flash_template.ejs")
-const SHOW_TEMPLATE = require("dash_banner/show_template.ejs")
+import ACTION_TEMPLATE from "dash_banner/action_template.ejs"
+import FLASH_TEMPLATE from "dash_banner/flash_template.ejs"
+import SHOW_TEMPLATE from "dash_banner/show_template.ejs"
 
 describe("DashBanner.View", () => {
 
+  var fixture;
+
   beforeEach(() => {
-    this.fixture = setFixtures('<div data-id="dash-banner-container"></div>');
+    fixture = setFixtures('<div data-id="dash-banner-container"></div>');
     jQuery.fx.off = true;
     jasmine.clock().install();
   });
