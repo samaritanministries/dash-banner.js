@@ -1,6 +1,7 @@
 import ACTION_TEMPLATE from "dash_banner/action_template.ejs"
 import FLASH_TEMPLATE from "dash_banner/flash_template.ejs"
 import SHOW_TEMPLATE from "dash_banner/show_template.ejs"
+import Backbone from "backbone"
 
 DashBannerView = class View extends Backbone.View {
 

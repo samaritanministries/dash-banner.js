@@ -9,7 +9,7 @@ describe("DashBannerView", () => {
 
   beforeEach(() => {
     fixture = setFixtures('<div data-id="dash-banner-container"></div>');
-    jQuery.fx.off = true;
+    $.fx.off = true;
     jasmine.clock().install();
   });
 

@@ -5,8 +5,6 @@ const PROJECT_ROOT = path.resolve(__dirname);
 
 module.exports = {
   entry: [
-    "./bower_components/jquery/dist/jquery.js",
-    "./bower_components/backbone/backbone.js",
     "./scripts/dash_banner/load.js"
   ],
   output: {

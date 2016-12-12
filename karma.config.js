@@ -8,8 +8,6 @@ module.exports = function (config) {
     files: [
       "bower_components/jquery/dist/jquery.js",
       "bower_components/jasmine-jquery/lib/jasmine-jquery.js",
-      "bower_components/underscore/underscore.js",
-      "bower_components/backbone/backbone.js",
       "spec/dash_banner/view_spec.js"
     ],
     plugins: [
