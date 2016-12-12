@@ -30,7 +30,7 @@ module.exports = function (config) {
     reporters: ["spec"],
     singleRun: false,
     phantomjsLauncher: {
-      exitOnResourceError:true
+      exitOnResourceError: true
     },
     webpack: webpackConfig
   });
