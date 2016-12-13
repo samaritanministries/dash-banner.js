@@ -22,14 +22,22 @@ then
   echo 'Run `grunt` to see errors.'
   exit 1
 fi
+npm run webpack
+if [ $? -ne 0 ]
+then
+  echo 'Did not bundle correctly.'
+  echo 'Run `npm run webpack` to see errors.'
+  exit 1
+fi
+
 git add dist
 
 #run tests
-testem ci -P -R 'dot'
+npm test
 if [ $? -ne 0 ]
 then
   echo 'Tests failed.'
-  echo 'Run `testem ci` to see errors.'
+  echo 'Run `npm test` to see errors.'
   exit 1
 fi
 

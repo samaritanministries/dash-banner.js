@@ -1,19 +1,33 @@
-module.exports = function (wallaby) {
+var wallabyWebpack = require('wallaby-webpack');
+var webpackConfig = require('./webpack.config');
+var path = require("path");
 
+const PROJECT_ROOT = path.resolve(__dirname);
+
+module.exports = function (wallaby) {
+  webpackConfig.devtool = "eval-source-map"
   return {
+    compilers: {
+      "scripts/**/*.js": wallaby.compilers.babel(),
+      "spec/**/*.js": wallaby.compilers.babel()
+    },
+
     files: [
-      "bower_components/jquery/dist/jquery.js",
-      "bower_components/underscore/underscore.js",
-      "bower_components/backbone/backbone.js",
-      "bower_components/jasmine-jquery/lib/jasmine-jquery.js",
-      "scripts/namespace.js",
-      ".tmp/scripts/dash_banner/templates.js",
-      "scripts/dash_banner/view.coffee"
+      {pattern: "bower_components/jquery/dist/jquery.js", load: true},
+      {pattern: "bower_components/jasmine-jquery/lib/jasmine-jquery.js", load: true},
+      {pattern: "scripts/**/*.ejs", load: false},
+      {pattern: "spec/dash_banner/view_spec.js", ignore: true}
     ],
+
+    postprocessor: wallabyWebpack(webpackConfig),
+
+    setup: function () {
+      window.__moduleBundler.loadTests();
+    },
 
     tests: [
-      "spec/**/*.coffee"
-    ],
+      {pattern: "spec/dash_banner/view_spec.js", load: false}
+    ]
   };
 
 };
