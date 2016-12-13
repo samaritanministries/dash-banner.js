@@ -1,19 +1,22 @@
 var wallabyWebpack = require('wallaby-webpack');
 var webpackConfig = require('./webpack.config');
+var path = require("path");
+
+const PROJECT_ROOT = path.resolve(__dirname);
 
 module.exports = function (wallaby) {
-  webpackConfig.module = {}
+  webpackConfig.devtool = "eval-source-map"
   return {
     compilers: {
-      "scripts/dash_banner/**/*.js": wallaby.compilers.babel(),
+      "scripts/**/*.js": wallaby.compilers.babel(),
       "spec/**/*.js": wallaby.compilers.babel()
     },
 
     files: [
-      {pattern: "bower_components/underscore/underscore.js", load: true},
       {pattern: "bower_components/jquery/dist/jquery.js", load: true},
-      {pattern: "bower_components/backbone/backbone.js", load: true},
-      {pattern: "scripts/dash_banner/foo.js", load: true}
+      {pattern: "bower_components/jasmine-jquery/lib/jasmine-jquery.js", load: true},
+      {pattern: "scripts/**/*.ejs", load: false},
+      {pattern: "spec/dash_banner/view_spec.js", ignore: true}
     ],
 
     postprocessor: wallabyWebpack(webpackConfig),
@@ -23,7 +26,7 @@ module.exports = function (wallaby) {
     },
 
     tests: [
-      {pattern: "spec/dash_banner/foo_spec.js", load: false}
+      {pattern: "spec/dash_banner/view_spec.js", load: false}
     ]
   };
 
