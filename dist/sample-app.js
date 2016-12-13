@@ -50,13 +50,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	(function () {
-	  $(function () {
-	    return new _show_banner_view2.default({
-	      el: $("[data-id=show-banner]")
-	    });
+	$(function () {
+	  return new _show_banner_view2.default({
+	    el: $("[data-id=show-banner]")
 	  });
-	}).call(undefined);
+	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
