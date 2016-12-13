@@ -2,6 +2,10 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [2.1.0] - 2016-12-13
+
+ * Remove dependency on Grunt
+
 ## [2.0.0] - 2016-12-13
 
  * Migrate component to ES6 and Webpack
