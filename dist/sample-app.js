@@ -44,213 +44,23 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _view = __webpack_require__(1);
+	/* WEBPACK VAR INJECTION */(function($) {var _show_banner_view = __webpack_require__(8);
 
-	var _view2 = _interopRequireDefault(_view);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	window.DashBanner = {
-	  View: _view2.default
-	};
-
-/***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _action_template = __webpack_require__(3);
-
-	var _action_template2 = _interopRequireDefault(_action_template);
-
-	var _flash_template = __webpack_require__(4);
-
-	var _flash_template2 = _interopRequireDefault(_flash_template);
-
-	var _show_template = __webpack_require__(5);
-
-	var _show_template2 = _interopRequireDefault(_show_template);
-
-	var _backbone = __webpack_require__(6);
-
-	var _backbone2 = _interopRequireDefault(_backbone);
+	var _show_banner_view2 = _interopRequireDefault(_show_banner_view);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	DashBannerView = function (_Backbone$View) {
-	  _inherits(View, _Backbone$View);
-
-	  function View() {
-	    _classCallCheck(this, View);
-
-	    return _possibleConstructorReturn(this, (View.__proto__ || Object.getPrototypeOf(View)).apply(this, arguments));
-	  }
-
-	  _createClass(View, [{
-	    key: "events",
-	    value: function events() {
-	      return { "click [data-id=banner-close]": "_hideBanner" };
-	    }
-	  }, {
-	    key: "initialize",
-	    value: function initialize(options) {
-	      this.bannerContainer = options.target;
-	      this.message = options.message;
-	      this.status = options.status;
-	    }
-	  }, {
-	    key: "flash",
-	    value: function flash(template) {
-	      this.render(template);
-	      var timerId = setTimeout(this._hideBanner.bind(this), DashBannerView.TIME_VISIBLE_IN_MILLISECONDS);
-	      DashBannerView.ACTIVE_TIMER_ID = timerId;
-	      return this;
-	    }
-	  }, {
-	    key: "show",
-	    value: function show(template) {
-	      return this.render(template);
-	    }
-	  }, {
-	    key: "render",
-	    value: function render(template) {
-	      this.$el.html(template());
-	      this.bannerContainer.html(this.el);
-	      this._messageEl().text(this.message);
-
-	      this._bannerEl().addClass("dash-banner--" + this.status);
-	      if (this.status == "error") {
-	        this._iconEl().addClass("dashing-icon--alert-filled");
-	      } else if (this.status == "success") {
-	        this._iconEl().addClass("dashing-icon--checkmark");
-	      } else {
-	        this._iconEl().addClass("dashing-icon--" + this.status);
-	      }
-	      if (DashBannerView.ACTIVE_TIMER_ID) {
-	        clearTimeout(DashBannerView.ACTIVE_TIMER_ID);
-	      }
-	      return this;
-	    }
-	  }, {
-	    key: "activeTimerID",
-	    value: function activeTimerID() {
-	      return DashBannerView.ACTIVE_TIMER_ID;
-	    }
-	  }, {
-	    key: "_hideBanner",
-	    value: function _hideBanner() {
-	      var _this2 = this;
-
-	      DashBannerView.ACTIVE_TIMER_ID = null;
-	      this._bannerEl().slideUp(150, function () {
-	        _this2.bannerContainer.empty();
-	      });
-	    }
-	  }, {
-	    key: "_messageEl",
-	    value: function _messageEl() {
-	      return this.$("[data-id=banner-message]");
-	    }
-	  }, {
-	    key: "_bannerEl",
-	    value: function _bannerEl() {
-	      return this.$("[data-id=dash-banner]");
-	    }
-	  }, {
-	    key: "_iconEl",
-	    value: function _iconEl() {
-	      return this.$("[data-id=banner-icon]");
-	    }
-	  }], [{
-	    key: "flashSuccess",
-	    value: function flashSuccess(message) {
-	      var view = new DashBannerView({
-	        message: message,
-	        status: "success",
-	        target: $("[data-id=dash-banner-container]")
-	      });
-	      return view.flash(_flash_template2.default);
-	    }
-	  }, {
-	    key: "flashError",
-	    value: function flashError(message) {
-	      var view = new DashBannerView({
-	        message: message,
-	        status: "error",
-	        target: $("[data-id=dash-banner-container]")
-	      });
-	      return view.flash(_flash_template2.default);
-	    }
-	  }, {
-	    key: "flashAction",
-	    value: function flashAction(message, status, target) {
-	      var view = new DashBannerView({
-	        message: message,
-	        status: status,
-	        target: target || $("[data-id=dash-banner-container]")
-	      });
-	      return view.flash(_action_template2.default);
-	    }
-	  }, {
-	    key: "showSuccess",
-	    value: function showSuccess(message) {
-	      var view = new DashBannerView({
-	        message: message,
-	        status: "success",
-	        target: $("[data-id=dash-banner-container]")
-	      });
-	      return view.show(_show_template2.default);
-	    }
-	  }, {
-	    key: "showError",
-	    value: function showError(message) {
-	      var view = new DashBannerView({
-	        message: message,
-	        status: "error",
-	        target: $("[data-id=dash-banner-container]")
-	      });
-	      return view.show(_show_template2.default);
-	    }
-	  }, {
-	    key: "showAction",
-	    value: function showAction(message, status, target) {
-	      var view = new DashBannerView({
-	        message: message,
-	        status: status,
-	        target: target || $("[data-id=dash-banner-container]")
-	      });
-	      return view.show(_action_template2.default);
-	    }
-	  }, {
-	    key: "closeBanner",
-	    value: function closeBanner(target) {
-	      var view = new DashBannerView({
-	        target: target || $("[data-id=dash-banner-container]")
-	      });
-	      view.bannerContainer.html('');
-	    }
-	  }]);
-
-	  return View;
-	}(_backbone2.default.View);
-	DashBannerView.ACTIVE_TIMER_ID = null;
-	DashBannerView.TIME_VISIBLE_IN_MILLISECONDS = 3000;
-
-	exports.default = DashBannerView;
+	(function () {
+	  $(function () {
+	    return new _show_banner_view2.default({
+	      el: $("[data-id=show-banner]")
+	    });
+	  });
+	}).call(undefined);
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
+/* 1 */,
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -10477,114 +10287,9 @@
 
 
 /***/ },
-/* 3 */
-/***/ function(module, exports) {
-
-	module.exports = function anonymous(locals, filters, escape, rethrow) {
-	    escape = escape || function(html) {
-	        return String(html).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&#39;").replace(/"/g, "&quot;");
-	    };
-	    var __stack = {
-	        lineno: 1,
-	        input: '<div data-id="dash-banner" class="dash-banner">\n    <div class="row dash-banner--row">\n        <i data-id="banner-icon" class="dashing-icon dashing-icon--white dash-banner--icon"></i>\n        <h3 class="dash-banner--title" data-id="banner-message"></h3>\n    </div>\n</div>\n',
-	        filename: "."
-	    };
-	    function rethrow(err, str, filename, lineno) {
-	        var lines = str.split("\n"), start = Math.max(lineno - 3, 0), end = Math.min(lines.length, lineno + 3);
-	        var context = lines.slice(start, end).map(function(line, i) {
-	            var curr = i + start + 1;
-	            return (curr == lineno ? " >> " : "    ") + curr + "| " + line;
-	        }).join("\n");
-	        err.path = filename;
-	        err.message = (filename || "ejs") + ":" + lineno + "\n" + context + "\n\n" + err.message;
-	        throw err;
-	    }
-	    try {
-	        var buf = [];
-	        with (locals || {}) {
-	            (function() {
-	                buf.push('<div data-id="dash-banner" class="dash-banner">\n    <div class="row dash-banner--row">\n        <i data-id="banner-icon" class="dashing-icon dashing-icon--white dash-banner--icon"></i>\n        <h3 class="dash-banner--title" data-id="banner-message"></h3>\n    </div>\n</div>\n');
-	            })();
-	        }
-	        return buf.join("");
-	    } catch (err) {
-	        rethrow(err, __stack.input, __stack.filename, __stack.lineno);
-	    }
-	}
-
-/***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	module.exports = function anonymous(locals, filters, escape, rethrow) {
-	    escape = escape || function(html) {
-	        return String(html).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&#39;").replace(/"/g, "&quot;");
-	    };
-	    var __stack = {
-	        lineno: 1,
-	        input: '<div data-id="dash-banner" class="dash-banner">\n  <div class="row dash-banner--row">\n    <i data-id="banner-icon" class="dashing-icon dashing-icon--white dash-banner--icon"></i>\n    <h3 class="dash-banner--title" data-id="banner-message"></h3>\n  </div>\n</div>\n',
-	        filename: "."
-	    };
-	    function rethrow(err, str, filename, lineno) {
-	        var lines = str.split("\n"), start = Math.max(lineno - 3, 0), end = Math.min(lines.length, lineno + 3);
-	        var context = lines.slice(start, end).map(function(line, i) {
-	            var curr = i + start + 1;
-	            return (curr == lineno ? " >> " : "    ") + curr + "| " + line;
-	        }).join("\n");
-	        err.path = filename;
-	        err.message = (filename || "ejs") + ":" + lineno + "\n" + context + "\n\n" + err.message;
-	        throw err;
-	    }
-	    try {
-	        var buf = [];
-	        with (locals || {}) {
-	            (function() {
-	                buf.push('<div data-id="dash-banner" class="dash-banner">\n  <div class="row dash-banner--row">\n    <i data-id="banner-icon" class="dashing-icon dashing-icon--white dash-banner--icon"></i>\n    <h3 class="dash-banner--title" data-id="banner-message"></h3>\n  </div>\n</div>\n');
-	            })();
-	        }
-	        return buf.join("");
-	    } catch (err) {
-	        rethrow(err, __stack.input, __stack.filename, __stack.lineno);
-	    }
-	}
-
-/***/ },
-/* 5 */
-/***/ function(module, exports) {
-
-	module.exports = function anonymous(locals, filters, escape, rethrow) {
-	    escape = escape || function(html) {
-	        return String(html).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&#39;").replace(/"/g, "&quot;");
-	    };
-	    var __stack = {
-	        lineno: 1,
-	        input: '<div data-id="dash-banner" class="dash-banner">\n  <div class="row dash-banner--row">\n    <i data-id="banner-icon" class="dashing-icon dashing-icon--white dash-banner--icon"></i>\n    <h3 class="dash-banner--title" data-id="banner-message"></h3>\n    <div class="dash-banner--close button button--transparent button--icon button--icon--small hidden" data-id="banner-close">\n    	<i class="dashing-icon dashing-icon--close dashing-icon--white"></i>\n    </div>\n  </div>\n</div>\n',
-	        filename: "."
-	    };
-	    function rethrow(err, str, filename, lineno) {
-	        var lines = str.split("\n"), start = Math.max(lineno - 3, 0), end = Math.min(lines.length, lineno + 3);
-	        var context = lines.slice(start, end).map(function(line, i) {
-	            var curr = i + start + 1;
-	            return (curr == lineno ? " >> " : "    ") + curr + "| " + line;
-	        }).join("\n");
-	        err.path = filename;
-	        err.message = (filename || "ejs") + ":" + lineno + "\n" + context + "\n\n" + err.message;
-	        throw err;
-	    }
-	    try {
-	        var buf = [];
-	        with (locals || {}) {
-	            (function() {
-	                buf.push('<div data-id="dash-banner" class="dash-banner">\n  <div class="row dash-banner--row">\n    <i data-id="banner-icon" class="dashing-icon dashing-icon--white dash-banner--icon"></i>\n    <h3 class="dash-banner--title" data-id="banner-message"></h3>\n    <div class="dash-banner--close button button--transparent button--icon button--icon--small hidden" data-id="banner-close">\n    	<i class="dashing-icon dashing-icon--close dashing-icon--white"></i>\n    </div>\n  </div>\n</div>\n');
-	            })();
-	        }
-	        return buf.join("");
-	    } catch (err) {
-	        rethrow(err, __stack.input, __stack.filename, __stack.lineno);
-	    }
-	}
-
-/***/ },
+/* 3 */,
+/* 4 */,
+/* 5 */,
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -13931,6 +13636,92 @@
 	  }
 	}.call(this));
 
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _backbone = __webpack_require__(6);
+
+	var _backbone2 = _interopRequireDefault(_backbone);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _class = function (_Backbone$View) {
+	  _inherits(_class, _Backbone$View);
+
+	  function _class() {
+	    _classCallCheck(this, _class);
+
+	    return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
+	  }
+
+	  _createClass(_class, [{
+	    key: "events",
+	    value: function events() {
+	      return {
+	        "click [data-id=flash-success-banner]": "flashSuccessBanner",
+	        "click [data-id=flash-error-banner]": "flashErrorBanner",
+	        "click [data-id=flash-action-banner]": "flashActionBanner",
+	        "click [data-id=show-success-banner]": "showSuccessBanner",
+	        "click [data-id=show-error-banner]": "showErrorBanner",
+	        "click [data-id=show-action-banner]": "showActionBanner",
+	        "click [data-id=close-banner]": "closeBanner"
+	      };
+	    }
+	  }, {
+	    key: "flashSuccessBanner",
+	    value: function flashSuccessBanner(event) {
+	      DashBanner.View.flashSuccess("Some Success Message " + event.timeStamp);
+	    }
+	  }, {
+	    key: "flashErrorBanner",
+	    value: function flashErrorBanner(event) {
+	      DashBanner.View.flashError("Some Error Message " + event.timeStamp);
+	    }
+	  }, {
+	    key: "flashActionBanner",
+	    value: function flashActionBanner(event) {
+	      DashBanner.View.flashAction("Some Action Message " + event.timeStamp);
+	    }
+	  }, {
+	    key: "showSuccessBanner",
+	    value: function showSuccessBanner(event) {
+	      DashBanner.View.showSuccess("Some Success Message " + event.timeStamp);
+	    }
+	  }, {
+	    key: "showErrorBanner",
+	    value: function showErrorBanner(event) {
+	      DashBanner.View.showError("Some Error Message " + event.timeStamp);
+	    }
+	  }, {
+	    key: "showActionBanner",
+	    value: function showActionBanner(event) {
+	      DashBanner.View.showAction("Some Action Message " + event.timeStamp);
+	    }
+	  }, {
+	    key: "closeBanner",
+	    value: function closeBanner() {
+	      DashBanner.View.closeBanner();
+	    }
+	  }]);
+
+	  return _class;
+	}(_backbone2.default.View);
+
+	exports.default = _class;
 
 /***/ }
 /******/ ]);
