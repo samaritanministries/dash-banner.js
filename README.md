@@ -4,12 +4,38 @@
 
 #### This is the alert banner for the Dash platform.
 
+Right now, this component is in a state of flux, transitioning between ES5 and ES6. As of now, all of the JavaScript has been migrated to using Webpack, however the CSS files are still built via Grunt. Ideally, grunt would be entirely removed in favor of Webpack.
 
 ## Dependencies
 
  * [Dashing Framework](https://github.com/dashframework/dashing/)
+ * Add an element with `data-id=dash-banner-container` to your page.
 
- * An element with `data-id=dash-banner-container`
+# Usage
+
+Dash Banner requires an element with `data-id=dash-banner-container` on the page.
+
+## ES6 Applications
+
+```javascript
+import DashBannerView from "path/to/dash_banner/scripts/dash_banner/view.js"
+DashBannerView.flashSuccess("Great Success!");
+```
+
+## ES5 Applications
+
+1. Add `<script src="path/to/dash_banner/scripts/dash_banner/view.js"></script>` to your index.
+2. `DashBanner.View.flashSuccess("Great Success!");`
+
+# Project Setup
+
+ * install node/npm
+ * npm install
+ * bower install
+
+# Running the Tests
+
+Run `npm test`
 
 # Releasing a New Version
 
@@ -18,20 +44,7 @@ Steps to release a new version:
 1. Update the [change log](/CHANGELOG.md).
 2. Run `./bower_deploy.sh`
 
-# Setup
-
-* install node/npm
-* npm install
-* bower install
-* npm install testem -g
-
-# Tests
-
-Run ```testem```
-
-# Usage
-
-Dash Banner requires an element with `data-id=dash-banner-container` on the page.
+# More examples
 
 ## Success Example
 
@@ -103,7 +116,7 @@ Include component styles in your main application SASS file.
 
 ## Banner CSS Classes
 
-Multiple classes can be called by the CSS supplied within this component. They are as follows: 
+Multiple classes can be called by the CSS supplied within this component. They are as follows:
 
 ## Banner General
 
@@ -133,7 +146,7 @@ Multiple classes can be called by the CSS supplied within this component. They a
  <dd>The typical dash purple as a banner background.</dd>
 </dl>
 
-## Banner Other 
+## Banner Other
 
 <dl>
   <dt>.dash-banner--close</dt>
@@ -144,7 +157,7 @@ Multiple classes can be called by the CSS supplied within this component. They a
   <dd>The size, color, and alignment of the text displayed by the banner</dd>
   <dt>.dash-banner--row</dt>
   <dd>This class provides a simple fix to the normal dash "row" class to prevent overflow within banners. This class should only be added to the "row" containing element for the banner</dd>
-  <dt>.dashing-icon--undefined</dt> 
+  <dt>.dashing-icon--undefined</dt>
   <dd>An icon to be overwritten, displays alert-filled by default</dd>
 </dl>
 
