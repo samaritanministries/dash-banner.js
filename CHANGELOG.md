@@ -1,6 +1,11 @@
 # Change Log
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
+
+## [2.0.0] - 2016-12-13
+
+ * Migrate component to ES6 and Webpack
+
 ## [0.5.4] - 2016-09-07
  * update README
  * remove duplicate class
