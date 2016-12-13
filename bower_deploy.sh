@@ -14,14 +14,11 @@ then
   exit 1
 fi
 
+# clean
+rm -rf dist/
+rm -rf .tmp/
+
 # build
-grunt
-if [ $? -ne 0 ]
-then
-  echo 'Did not build correctly.'
-  echo 'Run `grunt` to see errors.'
-  exit 1
-fi
 npm run webpack
 if [ $? -ne 0 ]
 then
@@ -29,7 +26,7 @@ then
   echo 'Run `npm run webpack` to see errors.'
   exit 1
 fi
-
+cp styles/dash-banner.scss dist/dash-banner.scss
 git add dist
 
 #run tests

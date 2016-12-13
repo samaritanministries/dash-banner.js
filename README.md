@@ -4,7 +4,7 @@
 
 #### This is the alert banner for the Dash platform.
 
-Right now, this component is in a state of flux, transitioning between ES5 and ES6. As of now, all of the JavaScript has been migrated to using Webpack, however the CSS files are still built via Grunt. Ideally, grunt would be entirely removed in favor of Webpack.
+Dash Banner has been converted to use ES6 and Webpack, however it is still being shipped with a bundled Javascript file for use with pre-ES6 applications. Instructions for both are included.
 
 ## Dependencies
 
@@ -100,7 +100,7 @@ DashBanner.View.closeBanner($('.custom-container'))
 
 # Running the sample
 
-1. run `testem`
+1. `npm run webpack`
 2. `open app/index.html`
 
 >Note: With the addition of the font icons, the icons will not display unless the page is loaded into a web server. grunt uxServer is not available to be ran in this component as of now, however apache or stack can be used to run it properly (LAMP/WAMP/MAMP).
