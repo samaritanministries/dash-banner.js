@@ -1,6 +1,7 @@
 # Dash Banner
 
 [![Build Status](https://travis-ci.org/samaritanministries/dash-banner.js.svg?branch=master)](https://travis-ci.org/samaritanministries/dash-banner.js)
+[![Dash-Banner Version](https://img.shields.io/badge/Version-2.1.0-green.svg)]()
 
 Dash Banner has been converted to use ES6 and Webpack, however it is still being shipped with a bundled Javascript file for use with pre-ES6 applications. Instructions for both are included.
 
