@@ -31,7 +31,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
-    "demo": "webpack-dev-server",
+    "demo": "webpack-dev-server --content-base app/",
     "karma": "karma start karma.config.js",
     "test": "karma start karma.config.js --single-run=true",
     "webpack": "webpack --config webpack.config.js --progress --colors --show-details"

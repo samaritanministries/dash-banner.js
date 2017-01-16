@@ -71,7 +71,7 @@ To run the tests with a watcher:
 ### Running the Demo
 
 1. `npm run demo`
-2. Open `http://localhost:8080/webpack-dev-server/app`
+2. Open `http://localhost:8080/webpack-dev-server`
 
 ## Releasing a New Version
 
